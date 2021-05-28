@@ -1,0 +1,9 @@
+.padding-5{width: 90%; margin-left: 5%; margin-top: 10px;}
+
+.card-row{width: 100%; min-height: 255px; border-bottom: 0.5px solid rgba(0,0,0,0.05);}
+.card-row:after{content: ""; display: table; clear: both;}
+
+.card-left{width: 30%; float: left; text-align: right; }
+.card-right{width: 70%; float: left; }
+
+.card-image{height: 140px; width: 140px; border-radius: 50%;}
