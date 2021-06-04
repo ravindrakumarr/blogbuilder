@@ -11,6 +11,7 @@ import Contact from './components/Contact/Contact';
 import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
 import PostDetails from './components/PostDetails/PostDetails';
+import Create from './components/Create/Create';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
 
         <Switch>
           <Route path='/' exact ><Home/></Route>
-          <Route path='/services'  />
+          <Route path='/create' component='Create'><Create/></Route>
           <Route path='/contact' component='contact'><Contact/></Route>
           <Route path='/sign-up'  />
           <Route path='/blog' component='blog'><Blog/></Route>

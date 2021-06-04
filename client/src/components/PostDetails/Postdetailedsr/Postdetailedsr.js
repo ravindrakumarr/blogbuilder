@@ -25,6 +25,8 @@ const Postdetailedsr = ({ post, setCurrentId }) => {
 
   return (
 
+    <>
+
     <div className="card-row">
 
         <div className="card-left">
@@ -78,6 +80,31 @@ const Postdetailedsr = ({ post, setCurrentId }) => {
 
 
     </div>
+
+
+    {/*--building the blog structure--*/}
+
+
+    <div className="post-container-row box-shadow">
+
+            <div className="post-container-left">
+                <img src={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} 
+                className="post-image"
+                />
+            </div>
+
+            <div className="post-container-right">
+                <div className="padding-5">
+
+                <Typography variant="h4" color="default" style={{fontFamily: 'Times New Roman' }}>{post.title}</Typography>
+
+                </div>
+            </div>
+
+    </div>
+
+
+    </>
 
    
     );
