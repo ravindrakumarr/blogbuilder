@@ -4,7 +4,8 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { getPosts } from '../../actions/posts';
-import Autocomplete from '../Autocompleteform/Autocompleteform';
+
+import SearchForm from '../SearchForm/SearchForm';
 
 import Pagination from '../Pagination/Pagination.js';
 import Pageno from '../Pageno/Pageno.js';
@@ -29,7 +30,6 @@ const Search = () => {
     //change page
     const paginate = pageNumber => setCurrentPage(pageNumber); 
 
-    const autocompletePosts = p_posts;
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -62,7 +62,8 @@ const Search = () => {
 
                 {/* Search incomplete box */}
 
-                <Autocomplete p_posts={autocompletePosts} loading={loading}/>
+                <SearchForm/>
+                <br/>
 
                 {/* Quick Links */}
                 <h3 className="footer_ul_amrc">Quick Links to visit</h3>

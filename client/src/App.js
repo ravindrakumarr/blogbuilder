@@ -29,7 +29,7 @@ function App() {
 
           <Route path='/Search' component='search'><Search/></Route>
 
-          <Route path='/post-details' component='postdetails'><PostDetails/><br/>this will contain post details</Route>
+          <Route path='/post-details' component='postdetails'><PostDetails/></Route>
         </Switch>
 
         <div className="make-this-void"></div>

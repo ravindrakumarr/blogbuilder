@@ -1,0 +1,7 @@
+.icon{font-size: 10px; }
+.input{border-radius: 2px; padding: 5px 0px 5px 5px;}
+
+.input:focus{outline: none;}
+
+.submit-button{border: none; border-radius: 2px; background: none; margin-left:-30px; cursor: pointer;}
+.submit-button:focus{outline: none;}

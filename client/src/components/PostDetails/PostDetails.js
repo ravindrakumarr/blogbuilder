@@ -10,7 +10,7 @@ const PostDetails = ({ setCurrentId }) => {
   const classes = useStyles();
 
   const windows_url = window.location.href;
-  const blog_query = windows_url.slice(35,);
+  const blog_query = windows_url.slice(35,).replace(/%20/gi, " ");
   //this query needs to be improved so that we can fetch id with better way
 
   return (
@@ -18,7 +18,7 @@ const PostDetails = ({ setCurrentId }) => {
  
 
     !posts.length ? <CircularProgress /> : (
-      <Grid className={classes.container} container alignItems="stretch" spacing={3}>
+        <>
         {posts.filter(filtered_post => filtered_post.creator.includes(blog_query)) 
         .map((post) =>  (
           <Grid key={post._id} item xs={12} sm={6} md={12}>
@@ -26,7 +26,7 @@ const PostDetails = ({ setCurrentId }) => {
           </Grid>
         ))
         }
-      </Grid>
+        </>
     )
 
 

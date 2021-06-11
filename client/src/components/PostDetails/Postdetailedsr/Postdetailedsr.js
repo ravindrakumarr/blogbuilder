@@ -27,81 +27,107 @@ const Postdetailedsr = ({ post, setCurrentId }) => {
 
     <>
 
-    <div className="card-row">
-
-        <div className="card-left">
-            <img src={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} 
-            className="card-image"
-            />
-        </div>
-
-        <div className="card-right">
-            <div className="padding-5">
-            
-                <Typography variant="h4" color="default" style={{fontFamily: 'Times New Roman' }}>{post.title}</Typography>
-                
-                <span className={classes.buttontext} color="textSecondary"><DescriptionOutlinedIcon fontSize="small"/>{post.creator}</span>
-                &nbsp;&nbsp;
-                <span className={classes.buttontext}><DateRangeOutlinedIcon fontSize="small"/>{moment(post.createdAt).fromNow()}</span>
-
-                <Button size="small" onClick={() => dispatch(likePost(post._id))}><ThumbUpAltIcon className={classes.icons} />
-                    <Typography className={classes.buttontext}>&nbsp;
-                        {
-                        post.likeCount<2 ?
-                        post.likeCount + " Like" :
-                        post.likeCount + " Likes"
-                        }
-                    </Typography> 
-                </Button>  
-                <br/><br/>  
-
-                {
-                post.message.length<100 ?
-                    post.message :
-                    post.message.slice(0,100)+'...'
-                }
-                <br/>
-
-                <Link to={"/post-details/"+post.creator}>Read More</Link>
-                <br/><br/>
-
-                <Button variant="outlined" size="small" onClick={() => dispatch(likePost(post._id))}><ThumbUpAltIcon fontSize="small"/>
-                    <Typography variant="body2" className={classes.buttontext}>&nbsp;Like</Typography> 
-                </Button>
-                &nbsp;&nbsp;
-                <Button variant="outlined" size="small" ><ScreenShareIcon fontSize="small"/>
-                    <Typography variant="body2" className={classes.buttontext}>&nbsp;Share</Typography> 
-                </Button>
-
-
-
-            </div>
-        </div>
-
-
-    </div>
-
 
     {/*--building the blog structure--*/}
 
+    <div className="jumbo-card box-shadow">
+    <div className="padding-5">
 
-    <div className="post-container-row box-shadow">
+        <br/>
 
-            <div className="post-container-left">
-                <img src={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} 
-                className="post-image"
-                />
+        <div className="jumbo-strip">
+        <div className="padding-5">
+
+            <div className="jumbo-strip-left">        
+                {post.title}
             </div>
 
-            <div className="post-container-right">
-                <div className="padding-5">
-
-                <Typography variant="h4" color="default" style={{fontFamily: 'Times New Roman' }}>{post.title}</Typography>
-
-                </div>
+            <div className="jubmo-strip-right">
+                By {post.creator} , {moment(post.createdAt).fromNow()}
             </div>
+
+        </div>    
+        </div>
+
+        <br/>
+
+        <img src={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} 
+            className="jumbo-image"
+        />
+        <br/><br/>
+
+        <div className="jumbo-strip">
+
+            <div className="jumbo-strip-left">
+            <div className="padding-5">     
+                <Button>Continue Reading</Button>
+            </div>    
+            </div>
+
+            <div className="jubmo-strip-right">
+            <div className="padding-5">    
+                {
+                    post.likeCount<2 ?
+                    post.likeCount + " Like" :
+                    post.likeCount + " Likes"
+                }
+                &nbsp;
+                <Button variant="outlined" size="small" onClick={() => dispatch(likePost(post._id))}><ThumbUpAltIcon fontSize="small"/>
+                    <Typography variant="body2" className={classes.buttontext}>&nbsp;Like</Typography> 
+                </Button>
+            </div>    
+            </div>
+
+        </div>
 
     </div>
+    </div>
+
+
+    <br/>
+    {/*Message container ++ suggestion container*/}
+
+    <div className="message-suggestion">
+
+        <div className="message-container box-shadow">
+        <div className="padding-5">
+
+            <Typography variant="h6"><br/>Message content of blog writer<br/><br/></Typography>
+            <Typography variant="subtitle1">{post.message}</Typography>
+            
+        </div>
+        </div>
+
+        <div className="suggestion-container box-shadow">
+        <div className="padding-5">    
+
+            <h3 className="footer_ul_amrc">Quick Links to visit</h3>
+            <ul className="footer_ul_amrc" style={{color: '#333333', textDecoration: 'underline'}}>
+                <li><a href="http://webenlance.com">Remove Background</a></li>
+                <li><a href="http://webenlance.com">Shadows Mirror Reflection</a></li>
+                <li><a href="http://webenlance.com">Logo Design</a></li>
+                <li><a href="http://webenlance.com">Vectorization</a></li>
+                <li><a href="http://webenlance.com">Hair Masking/Clipping</a></li>
+                <li><a href="http://webenlance.com">Image Cropping</a></li>
+            </ul>
+
+        </div>
+        </div>
+
+    </div>
+
+    {/*comment section*/}
+
+    <div className="comment-section">
+    <div className="padding-5">
+
+        <Typography variant="h6"><br/>Comment related to this <br/><br/></Typography>
+
+    </div>
+    </div>
+
+
+    
 
 
     </>

@@ -16,9 +16,7 @@ import './Home.css';
 
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
-import Autocomplete from '../Autocompleteform/Autocompleteform';
-
+import SearchForm from '../SearchForm/SearchForm';
 
 
 const BootstrapInput = withStyles((theme) => ({
@@ -91,7 +89,6 @@ const Home = () => {
   console.log(p_posts);
 
 
-const autocompletePosts = p_posts;
 
   return (
     <>
@@ -108,7 +105,8 @@ const autocompletePosts = p_posts;
 
                 {/* Search incomplete box */}
 
-                <Autocomplete p_posts={autocompletePosts} loading={loading}/>
+                <SearchForm/>
+                <br/>
 
                 {/* Quick Links */}
                 <h3 className="footer_ul_amrc">Quick Links to visit</h3>
