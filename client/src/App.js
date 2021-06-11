@@ -12,6 +12,7 @@ import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
 import PostDetails from './components/PostDetails/PostDetails';
 import Create from './components/Create/Create';
+import Search from './components/Search/Search.js';
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
           <Route path='/contact' component='contact'><Contact/></Route>
           <Route path='/sign-up'  />
           <Route path='/blog' component='blog'><Blog/></Route>
+
+          <Route path='/Search' component='search'><Search/></Route>
 
           <Route path='/post-details' component='postdetails'><PostDetails/><br/>this will contain post details</Route>
         </Switch>

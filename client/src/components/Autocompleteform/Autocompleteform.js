@@ -12,10 +12,11 @@ const Autocompleteform = ({p_posts, loading }) =>  {
         return <h2>Loading</h2>;
     }
 
+
     return (
     <>
 
-        <form>
+        <form method="get">
         <Autocomplete
             freeSolo
             id="free-solo-2-demo"

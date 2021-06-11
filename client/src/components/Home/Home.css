@@ -3,12 +3,17 @@
 .home-row{width: 100%; min-height: 550px;}
 .home-row:after{content: ""; display: table; clear: both;}
 
-.home-first-column{float: left; width: 25%; border-right: 0.5px solid rgba(0,0,0,0.12); min-height: 550px;}
+.home-first-column{float: left; width: 25%; border-right: 0.5px solid rgba(0,0,0,0.12); min-height: 550px;
+    border-bottom: 0.5px solid rgba(0,0,0,0.12); min-height: 550px;}
 
 /*---------------------------*/
 
-.home-second-column{float: left; width: 50%; min-height: 550px;}
-
+.home-second-column{float: left; width: 50%; height: 550px; overflow-y: scroll; border-bottom: 0.5px solid rgba(0,0,0,0.12); min-height: 550px;}
+/* scrollbar width */
+.home-second-column::-webkit-scrollbar { width: 2px; }
+.home-second-column::-webkit-scrollbar-track { background: #f1f1f1; }
+.home-second-column::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); }
+.home-second-column::-webkit-scrollbar-thumb:hover { background: #555; }
 
 /*---------------------------*/
 

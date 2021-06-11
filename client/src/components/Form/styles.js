@@ -21,5 +21,28 @@ export default makeStyles((theme) => ({
   },
   buttonSubmit: {
     marginBottom: 10,
+    width: '49%',
+    backgroundColor: '#0099cc',
+    textTransform: 'none'
   },
+  buttonClear: {
+    marginBottom: 10,
+    width: '48%',
+    marginLeft: '1%',
+    textTransform: 'none'
+  },
+  textfield:{
+    width: '48%',
+    marginLeft: '0.5%',
+  },
+  textarea:{
+    background: 'url(http://i.imgur.com/2cOaJ.png)',
+    backgroundAttachment: 'local',
+    backgroundRepeat: 'no-repeat',
+    paddingLeft: '35px',
+    paddingTop: '10px',
+    borderColor:'#ccc',
+    width: '98%',
+    marginBottom: 10
+  }
 }));

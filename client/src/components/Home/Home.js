@@ -16,8 +16,7 @@ import './Home.css';
 
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Pagination from '../Pagination/Pagination.js';
-import Pageno from '../Pageno/Pageno.js';
+
 import Autocomplete from '../Autocompleteform/Autocompleteform';
 
 
@@ -73,8 +72,7 @@ const Home = () => {
 */
   const [p_posts, setposts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [current, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(3);
+
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -92,17 +90,8 @@ const Home = () => {
 
   console.log(p_posts);
 
-  //get current posts
-
-const indexOfLastPost = current * postsPerPage;
-const indexOfFirstPost = indexOfLastPost - postsPerPage;
-const currentPosts = p_posts.slice(indexOfFirstPost, indexOfLastPost);
 
 const autocompletePosts = p_posts;
-
-//change page
-
-const paginate = pageNumber => setCurrentPage(pageNumber); 
 
   return (
     <>
@@ -119,9 +108,7 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
 
                 {/* Search incomplete box */}
 
-
                 <Autocomplete p_posts={autocompletePosts} loading={loading}/>
-
 
                 {/* Quick Links */}
                 <h3 className="footer_ul_amrc">Quick Links to visit</h3>
@@ -168,17 +155,6 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
 
         </div>
 
-
-
-        <div className="container mt-5">
-          <h4 className="text-primary mb-3">We will get search like this</h4>
-          <Pagination p_posts={currentPosts} loading={loading}/>
-          <Pageno 
-            postsPerPage={postsPerPage} 
-            totalPosts={p_posts.length}
-            paginate={paginate}
-          />
-        </div>
 
     </>
   );

@@ -6,7 +6,7 @@ function Footer() {
         <>
             
 
-            <footer class="footer">
+            <footer className="footer">
                 <div className="container bottom_border">
                 <div className="row">
                 <div className=" col-sm-4 col-md col-sm-4  col-12 col">

@@ -25,10 +25,10 @@ const Create = () => {
   
       return (
           <>
-  
-            <Grid item xs={12} sm={10}>
-                <Form currentId={currentId} setCurrentId={setCurrentId} />
-            </Grid>
+
+          <div style={{width: '100%' }}>
+            <Form currentId={currentId} setCurrentId={setCurrentId} />
+          </div>  
              
           </>
       )
