@@ -51,6 +51,11 @@ const CommentForm = ({ currentId, setCurrentId }) => {
     if (currentId === 0) {
       dispatch(createComment(postData));
       clear();
+      window.location.reload();
+
+      //we need to improve this in future - api calls are getting called on first attemp , not after saving
+      //so using refresh , which shall be removed for better productivity
+
     } else {
       dispatch(updateComment(currentId, postData));
       clear();

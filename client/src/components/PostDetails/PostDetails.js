@@ -6,28 +6,20 @@ import axios from 'axios';
 import useStyles from './styles';
 import Postdetailedsr from './Postdetailedsr/Postdetailedsr';
 
-
+import { useDispatch } from 'react-redux';
+import { getPosts } from '../../actions/posts';
 
 const PostDetails = ({ setCurrentId }) => {
-  //const posts = useSelector((state) => state.posts); 
+
+  const [currentId] = useState(0);
+  const dispatch = useDispatch();
   const classes = useStyles();
 
-  const [posts, setposts] = useState([]);
-  const [loading, setLoading] = useState(false);
   useEffect(() => {
-    const fetchPosts = async () => {
-      setLoading(true);
-      const res = await axios.get('http://localhost:5000/posts');
-      setposts(res.data);
-      setLoading(false);
+    dispatch(getPosts());
+  }, [currentId, dispatch]);
 
-    }
-    fetchPosts();
-
-  }, []);
-
-
- 
+  const posts = useSelector((state) => state.posts);
 
 
   const windows_url = window.location.href;
