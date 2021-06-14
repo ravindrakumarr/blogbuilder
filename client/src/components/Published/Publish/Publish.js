@@ -57,7 +57,7 @@ const Publish = ({ post, setCurrentId }) => {
                 }
                 <br/>
 
-                <Link to={"/post-details/"+post.creator}>Read More</Link>
+                <Link to={"/post-details/"+post._id}>Read More</Link>
                 <br/><br/>
 
                 <Button variant="outlined" size="small" onClick={() => dispatch(likePost(post._id))}><ThumbUpAltIcon fontSize="small"/>

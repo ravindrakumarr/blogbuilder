@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './Pagination.css';
 
 import {duration} from '../../Algos/duration.js';
+import moment from 'moment';
 
 const today = new Date().toLocaleDateString();
 
@@ -20,9 +21,9 @@ const Pagination = ({p_posts, loading }) =>  {
 
         {p_posts.map(post =>(
             <div key={post.id} >
-                <Link className="link-name" to={"/post-details/"+post.creator}>{post.title}</Link>
+                <Link className="link-name" to={"/post-details/"+post._id}>{post.title}</Link>
                 <br/>
-                <Typography variant="caption">By {post.creator} - {duration((post.createdAt).slice(0,10).replace(/-/gi, "/")-today)} ago</Typography>
+                <Typography variant="caption">By {post.creator} - {moment(post.createdAt).fromNow()}</Typography>
                 <br/>
                 <Typography variant="caption">
                     {

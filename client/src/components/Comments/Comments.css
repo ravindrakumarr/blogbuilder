@@ -1,0 +1,8 @@
+.padding-5{width: 90%; margin-left: 5%; margin-top: 10px;}
+
+.comments{
+    width: 100%; 
+}
+
+.comments-left{width: 7%; float: left; height: 60px; text-align: center; }
+.comments-right{width: 93%; float: left; height: 60px; text-align: left;  }

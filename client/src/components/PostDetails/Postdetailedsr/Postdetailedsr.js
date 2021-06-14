@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -16,9 +16,16 @@ import './Postdetailedsr.css';
 import { likePost, deletePost } from '../../../actions/posts';
 import useStyles from './styles';
 
-const Postdetailedsr = ({ post, setCurrentId }) => {
+import Comments from '../../Comments/Comments';
+import CommentForm from '../../CommentForm/CommentForm';
+
+const Postdetailedsr = ({ post }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
+
+  //it is for comments section
+  const [currentId, setCurrentId] = useState(0);
+
 
 
    
@@ -89,14 +96,41 @@ const Postdetailedsr = ({ post, setCurrentId }) => {
 
     <div className="message-suggestion">
 
-        <div className="message-container box-shadow">
-        <div className="padding-5">
+        <div className="message--comment">
 
-            <Typography variant="h6"><br/>Message content of blog writer<br/><br/></Typography>
-            <Typography variant="subtitle1">{post.message}</Typography>
+            {/*Message section*/}
+
+            <div className="message-container box-shadow">
+            <div className="padding-5">
+
+                <Typography variant="h6"><br/>{post.title}<br/><br/></Typography>
+                <Typography variant="subtitle1">{post.message}</Typography>
+                
+            </div>
+            </div>
+
+            <br/>
+
+            {/*comment section*/}
+
+            <div className="comment-section">
+            <div className="padding-5">
+
+                <Typography variant="h6"><br/>Comment related to this <br/><br/></Typography>
+
+                <br/><br/>
             
+                <Comments/>
+                <br/>
+                <CommentForm currentId={currentId} setCurrentId={setCurrentId} />
+
+
+            </div>
+            </div>
+
         </div>
-        </div>
+
+        
 
         <div className="suggestion-container box-shadow">
         <div className="padding-5">    
@@ -114,16 +148,6 @@ const Postdetailedsr = ({ post, setCurrentId }) => {
         </div>
         </div>
 
-    </div>
-
-    {/*comment section*/}
-
-    <div className="comment-section">
-    <div className="padding-5">
-
-        <Typography variant="h6"><br/>Comment related to this <br/><br/></Typography>
-
-    </div>
     </div>
 
 

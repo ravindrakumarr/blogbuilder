@@ -15,11 +15,18 @@
 .jubmo-strip-right{width: 60%; float: right; height: 50px; text-align: right;}
 
 
-.message-suggestion{width:94%; margin-left: 3%; min-height: 500px; border-radius: 2px;}
+
+
+.message-suggestion{width:94%; margin-left: 3%; border-radius: 2px;}
 .message-suggestion:after{content: ""; display: table; clear: both;}
 
-.message-container{width: 70%; float: left; min-height: 500px; background-color: #fff; border-radius: 2px;}
-.suggestion-container{width: 27%; margin-left: 3%; float: left; min-height: 200px;background-color: #fff;}
+
+.message--comment{width: 70%; float: left; }
+.suggestion-container{width: 28%; margin-left: 2%; float: left; min-height: 200px;background-color: #fff;}
+
+
+.message-container{width: 100%; float: left; min-height: 500px; background-color: #fff; border-radius: 2px;}
+
 
 /* scrollbar width for meassage container*/
 .message-container::-webkit-scrollbar { width: 2px; }
@@ -28,7 +35,7 @@
 .message-container::-webkit-scrollbar-thumb:hover { background: #555; }
 
 
-.comment-section{width:65.8%; margin-left: 3%; min-height: 500px; background-color: #fff; margin-top: 20px; border-radius: 2px;}
+.comment-section{width:100%; min-height: 400px; background-color: #fff; margin-top: 500px; border-radius: 2px;}
 
 /* scrollbar width for comment section*/
 .comment-section::-webkit-scrollbar { width: 2px; }

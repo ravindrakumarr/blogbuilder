@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 
 import postRoutes from './routes/posts.js';
+import commentRoutes from './routes/comment.js';
 
 const app = express();
 
@@ -13,8 +14,13 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
 
 app.use('/posts', postRoutes);
+app.use('/comments', commentRoutes);
 
-const CONNECTION_URL = "mongodb+srv://rkumar6821:tmkoc108@cluster0.o1ip5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+//this one is for mongo db atlas
+//const CONNECTION_URL = "mongodb+srv://rkumar6821:tmkoc108@cluster0.o1ip5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
+//this is for local mongo db compass client
+const CONNECTION_URL = "mongodb://localhost:27017/BlogBuilder"
 const PORT = process.env.PORT|| 5000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
