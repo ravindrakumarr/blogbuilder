@@ -37,7 +37,7 @@ function Footer() {
 
 
                 <div className=" col-sm-4 col-md  col-6 col">
-                <h5 className="headin5_amrc col_white_amrc pt2">Quick links</h5>
+                <h5 className="headin5_amrc col_white_amrc pt2">Most Visits</h5>
 
                 <ul className="footer_ul_amrc">
                     <li><a href="http://webenlance.com">Remove Background</a></li>
@@ -76,11 +76,10 @@ function Footer() {
                 <li><a href="http://webenlance.com">Contact</a></li>
                 </ul>
 
-                <p class="text-center">Copyright @2017 | Designed With by <a href="#">Your Company Name</a></p>
+                <p class="text-center">Copyright @2017 | <a href="#">Meet the author</a></p>
 
                 <ul class="social_footer_ul">
                 <li><a href="http://webenlance.com"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="http://webenlance.com"><i class="fab fa-twitter"></i></a></li>
                 <li><a href="http://webenlance.com"><i class="fab fa-linkedin"></i></a></li>
                 <li><a href="http://webenlance.com"><i class="fab fa-instagram"></i></a></li>
                 </ul>

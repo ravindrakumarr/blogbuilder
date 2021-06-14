@@ -18,13 +18,27 @@ const Search = () => {
     const [currentId, setCurrentId] = useState(0);
     const [loading, setLoading] = useState(false);
     const dispatch = useDispatch();
-    const [p_posts, setposts] = useState([]);
+    const [post_details, setposts] = useState([]);
 
     //change page
     const [postsPerPage] = useState(2);
     const [current, setCurrentPage] = useState(1);
     const indexOfLastPost = current * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
+
+
+    //have to improvise this filter search
+    const p_posts = post_details.filter(filtered_post => 
+        (filtered_post.title).toLowerCase().includes(blog_query[0].toLowerCase())
+    ) 
+
+ 
+    console.log(p_posts)
+    
+   
+        
+
+
     const currentPosts = p_posts.slice(indexOfFirstPost, indexOfLastPost);
 
     //change page
@@ -90,7 +104,7 @@ const Search = () => {
 
                 {console.log(blog_query)}
 
-                {blog_query.length > 1 ? 
+                {blog_query.length !=0 ? 
                     <>
                         <Pagination p_posts={currentPosts} loading={loading}/>
                         <Pageno 
