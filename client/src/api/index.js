@@ -16,3 +16,9 @@ export const fetchComment = () => axios.get(url2);
 export const createComment = (newComment) => axios.post(url2, newComment);
 export const updateComment = (id, updatedComment) => axios.patch(`${url2}/${id}`, updatedComment);
 
+// User section
+
+const url3 = 'http://localhost:5000/users';
+
+export const getUsers = () => axios.get(url3);
+export const createUser = (newUser) => axios.post(url3, newUser);

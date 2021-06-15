@@ -12,6 +12,8 @@ import FormControl from '@material-ui/core/FormControl';
 import InputBase from '@material-ui/core/InputBase';
 import { fade,withStyles } from '@material-ui/core/styles';
 
+import GoogleAuth from '../../Algos/googleAuth.js'
+
 import './Home.css';
 
 import { Link } from 'react-router-dom';
@@ -153,6 +155,9 @@ const Home = () => {
 
         </div>
 
+
+        {/* trying google signin & logout method*/}
+        <GoogleAuth/>
 
     </>
   );

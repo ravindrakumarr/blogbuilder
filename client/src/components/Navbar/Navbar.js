@@ -27,10 +27,12 @@ function Navbar() {
     <>
       <nav className='navbar box-shadow'>
         <div className='navbar-container'>
+          <div style={{marginTop: '-12px', marginLeft:'-50px'}}>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
             BlogBuilder
             <i class='fab fa-typo3' />
           </Link>
+          </div>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
@@ -66,9 +68,10 @@ function Navbar() {
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Blogs
+                Blog
               </Link>
             </li>
+            
 
   
           </ul>
