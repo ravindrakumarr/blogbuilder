@@ -16,7 +16,8 @@ const postSchema = mongoose.Schema({
     skills : { type : Array , "default" : [] },
     location: String,
     qualification: String,
-    work: String
+    work: String,
+    profile_photo: String
 })
 
 var Users = mongoose.model('Users', postSchema);

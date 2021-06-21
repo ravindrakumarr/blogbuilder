@@ -17,9 +17,9 @@ export const getUsers = async (req, res) => {
 
 
 export const createUser = async (req, res) => {
-    const { name, user_name, email_id, user_id, profile, createdAt, repository_url, introduction, skills, location, qualification, work, social_media } = req.body;
+    const { name, user_name, email_id, user_id, profile, createdAt, repository_url, introduction, skills, location, qualification, work, social_media, profile_photo } = req.body;
 
-    const newUser = new Users({ name, user_name, email_id, user_id, profile, createdAt, repository_url, introduction, skills, location, qualification, work, social_media })
+    const newUser = new Users({ name, user_name, email_id, user_id, profile, createdAt, repository_url, introduction, skills, location, qualification, work, social_media, profile_photo })
 
     try {
         await newUser.save();

@@ -13,14 +13,6 @@ import { getUsers } from '../../actions/users';
 
 const Author = () => {
 
-    const useStyles = makeStyles((theme) => ({
-        large: {
-          width: theme.spacing(12),
-          height: theme.spacing(12),
-        }
-    }));
-    const classes = useStyles();
-
     const [currentId] = useState(0);
     const dispatch = useDispatch();
   
@@ -40,10 +32,17 @@ const Author = () => {
         <br/><br/><br/>
         <div className="author-main-card box-shadow">
             <div className="padding-5" style={{textAlign: 'center'}}>
-                <div className="author-profile-photo">
-                    <Avatar className={classes.large} style={{backgroundColor: '#0099cc'}}></Avatar>
-                </div>
-                <br/><br/><br/>       
+    
+                {users
+                .filter(filtered_user => filtered_user.user_id.includes(user_query)) 
+                .map((user) =>  (
+                <>
+                <img className="profile_photo" src={user.profile_photo}/>
+                </>
+                ))
+                }
+        
+                <br/><br/>      
 
                 {users
                     .filter(filtered_user => filtered_user.user_id.includes(user_query)) 
@@ -52,6 +51,7 @@ const Author = () => {
                     <span className="small-heading">{user.user_name}</span>
                     <br/>
                     {user.profile}
+                    
                     <br/>
                     <Typography variant="caption">{user.introduction}</Typography>
                     </>

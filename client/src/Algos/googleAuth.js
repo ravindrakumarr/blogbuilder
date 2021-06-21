@@ -61,7 +61,8 @@ const GoogleAuth= () => {
                     'https://www.instagram.com/ravindra_kumarr/'
                   ],
                   qualification: 'Engineering',
-                  name: response.profileObj.name
+                  name: response.profileObj.name,
+                  profile_photo: response.profileObj.imageUrl,
                 };
     console.log(userData);
 
