@@ -103,7 +103,7 @@ const Postdetailedsr = ({ post }) => {
             <div className="message-container box-shadow">
             <div className="padding-5">
 
-                <Typography variant="h6"><br/>{post.title}<br/><br/></Typography>
+                <Typography variant="h6"><br/><bold>{post.title}</bold><br/><br/></Typography>
                 <Typography variant="subtitle1">{post.message}</Typography>
                 
             </div>
@@ -116,12 +116,8 @@ const Postdetailedsr = ({ post }) => {
             <div className="comment-section">
             <div className="padding-5">
 
-                <Typography variant="h6"><br/>Comment related to this <br/><br/></Typography>
-
-                <br/><br/>
-            
+                <Typography variant="h6"><br/><bold>Discussion on this thread</bold><br/><br/></Typography>      
                 <Comments/>
-                <br/>
                 <CommentForm currentId={currentId} setCurrentId={setCurrentId} />
 
 

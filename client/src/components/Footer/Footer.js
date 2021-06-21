@@ -1,5 +1,6 @@
 import React from 'react'
 import './Footer.css'
+import { Link } from 'react-router-dom';
 
 function Footer() {
     return (
@@ -12,10 +13,9 @@ function Footer() {
                 <div className=" col-sm-4 col-md col-sm-4  col-12 col">
                 <h5 className="headin5_amrc col_white_amrc pt2">Find us</h5>
 
-                <p className="mb10">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                <p><i className="fa fa-location-arrow"></i> 9878/25 sec 9 rohini 35 </p>
-                <p><i className="fa fa-phone"></i>  +91-9999878398  </p>
-                <p><i className="fa fa fa-envelope"></i> info@example.com  </p>
+                <p className="mb10">Blogbuilder is a independent community platform where you can share your artifacts & knowledge with others</p>
+                <p><i className="fa fa-location-arrow"></i> Hyderabad, India </p>
+                <p><i className="fa fa fa-envelope"></i> rkumar6821@gmail.com  </p>
 
 
                 </div>
@@ -56,7 +56,7 @@ function Footer() {
 
 
                 <ul class="footer_ul2_amrc">
-                <li><a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a><p>Lorem Ipsum is simply dummy text of the printing...<a href="#">https://www.lipsum.com/</a></p></li>
+                <li><a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a><p>We are on following platforms where you can follow us<a href="#">https://www.lipsum.com/</a></p></li>
                 <li><a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a><p>Lorem Ipsum is simply dummy text of the printing...<a href="#">https://www.lipsum.com/</a></p></li>
                 <li><a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a><p>Lorem Ipsum is simply dummy text of the printing...<a href="#">https://www.lipsum.com/</a></p></li>
                 </ul>
@@ -64,19 +64,13 @@ function Footer() {
                 </div>
                 </div>
                 </div>
+
+                <br/>
 
 
                 <div class="container">
-                <ul class="foote_bottom_ul_amrc">
-                <li><a href="http://webenlance.com">Home</a></li>
-                <li><a href="http://webenlance.com">About</a></li>
-                <li><a href="http://webenlance.com">Services</a></li>
-                <li><a href="http://webenlance.com">Pricing</a></li>
-                <li><a href="http://webenlance.com">Blog</a></li>
-                <li><a href="http://webenlance.com">Contact</a></li>
-                </ul>
 
-                <p class="text-center">Copyright @2017 | <a href="#">Meet the author</a></p>
+                <p class="text-center">Copyright @2017 | <a href="#">Terms of Service</a></p>
 
                 <ul class="social_footer_ul">
                 <li><a href="http://webenlance.com"><i class="fab fa-facebook-f"></i></a></li>

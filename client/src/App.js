@@ -13,6 +13,7 @@ import Footer from './components/Footer/Footer';
 import PostDetails from './components/PostDetails/PostDetails';
 import Create from './components/Create/Create';
 import Search from './components/Search/Search.js';
+import Author from './components/Author/Author.js';
 
 function App() {
   return (
@@ -26,10 +27,10 @@ function App() {
           <Route path='/contact' component='contact'><Contact/></Route>
           <Route path='/sign-up'  />
           <Route path='/blog' component='blog'><Blog/></Route>
-
           <Route path='/Search' component='search'><Search/></Route>
 
           <Route path='/post-details' component='postdetails'><PostDetails/></Route>
+          <Route path='/author' component='Author'><Author/></Route>
         </Switch>
 
         <div className="make-this-void"></div>

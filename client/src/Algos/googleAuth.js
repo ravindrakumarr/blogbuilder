@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { createUser } from '../actions/users.js';
+import { createUser, getUsers } from '../actions/users.js';
+import axios from 'axios';
 
 import GoogleLogin from 'react-google-login';
 import { GoogleLogout } from 'react-google-login';
@@ -12,41 +13,80 @@ import Avatar from '@material-ui/core/Avatar';
 const GoogleAuth= () => {
 
 
+  const dispatch = useDispatch();
+   //GETTING ALL USERS DATA FROM DATABASE 
+   const [users, setposts] = useState([]);
+   useEffect(() => {
+    const fetchPosts = async () => {
+      const res = await axios.get('http://localhost:5000/users');
+      setposts(res.data);
+    }
+
+    fetchPosts();
+
+  }, []);
+
+  console.log(users)
+
+
   //google o-auth tests
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [url, setUrl] = useState("");
 
-  const responseGoogle = (response)=> {
+  
+
+  const responseGoogle = (response) => {
     console.log(response);
     console.log(response.profileObj);
 
     setName(response.profileObj.name);
     setEmail(response.profileObj.email);
     setUrl(response.profileObj.imageUrl);
+
+    
+
+    
+    //TESTING - ON GOOGLE LOGIN IF IT CAN FILL THESE UP OR NOT
+    const userData = { user_name: response.profileObj.name, email_id: response.profileObj.email, user_id: 'tests', profile: 'developer' };
+    console.log(userData);
+    if (userData.user_name!="" && userData.email_id!="" && userData.user_id!="" && userData.profile!="" ){
+      
+      var index = 0
+      var i = 0
+      //LOGIC TO FIND THE USER PRESENT OR NOT
+      for ( i = 0; i<=users.length; i++){
+        if(users.email_id == response.profileObj.email){
+          console.log("we found it");
+        }
+      }
+      
+
+      if(true){
+        console.log(response.profileObj.email + " -User already exists");
+      } 
+      else{
+        dispatch(createUser(userData)); 
+      }
+    }
+    else{
+      console.log(userData + "we are not receiving as null")
+    }
+    
+
+
   }
 
+  
+ 
+  
+  
   const logOut = () => {
     setName("");
     setEmail("");
     setUrl("");
+    window.location.reload();
   }
-
-
-
-  //ADDING THE FORM ATTRIBUTES LETS CHECK IF GONNA WORK
-  const [userData, setUserData] = useState({ user_name: '', email_id: '', user_id: '', profile: '' });
-  //const user = useSelector((state) => (currentId ? state.users.find((message) => message._id === currentId) : null));
-  const dispatch = useDispatch();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    console.log(userData);
-    dispatch(createUser(userData));
-    console.log("here");
-
-  };
 
 
   return (
@@ -88,21 +128,9 @@ const GoogleAuth= () => {
 
 
         {/*Adding the form from where we can add users*/}
-        <br/><br/>
-
-        
-        <form autoComplete="off" noValidate  onSubmit={handleSubmit}>
-
-        <TextField variant="outlined" label="user_name" fullWidth value={userData.user_name} onChange={(e) => setUserData({ ...userData, user_name: e.target.value })} />
-        <TextField variant="outlined" label="email_id" fullWidth value={userData.email_id} onChange={(e) => setUserData({ ...userData, email_id: e.target.value })} />
-        <TextField variant="outlined" label="user_id" fullWidth value={userData.user_id} onChange={(e) => setUserData({ ...userData, user_id: e.target.value })} />
-        <TextField variant="outlined" label="profile" fullWidth value={userData.profile} onChange={(e) => setUserData({ ...userData, profile: e.target.value })} />
-
-        <Button variant="contained" color="primary" size="large" type="submit" fullWidth>Add user</Button>
-
-        </form>
 
              
+
       </>
   )
 }

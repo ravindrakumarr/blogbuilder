@@ -5,6 +5,7 @@ import axios from 'axios';
 import moment from 'moment';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 import { getComment } from '../../actions/comment';
@@ -66,14 +67,14 @@ const Comments = ({setCurrentId}) => {
                 </div>
 
                 <div className="comments-right">
-                  <Typography variant="body1" color="primary">{comments.creator_name}</Typography>
+                  <Typography variant="body1" color="primary"> <Link to={'/author?q='+comments.creator_id}>{comments.creator_name}</Link></Typography>
                   <Typography variant="caption">{moment(comments.createdAt).fromNow()}</Typography>
                 </div>
 
                 <Typography variant="body2">{comments.content}</Typography>
               </div>
 
-              <br/>
+              
 
              </>
 
