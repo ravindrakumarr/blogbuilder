@@ -45,11 +45,26 @@ const GoogleAuth= () => {
     setUrl(response.profileObj.imageUrl);
 
     
+    
 
     
     //TESTING - ON GOOGLE LOGIN IF IT CAN FILL THESE UP OR NOT
-    const userData = { user_name: response.profileObj.name, email_id: response.profileObj.email, user_id: 'tests', profile: 'developer' };
+    const userData = { user_name: response.profileObj.name, email_id: response.profileObj.email, 
+                  user_id: 'tests', profile: 'developer', 
+                  skills: ['PHP', 'Javascript', 'React'],
+                  work: 'Infosys',
+                  introduction: 'Hello My name is Ravindra Kumar, Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book',
+                  location: 'Hyderabad',
+                  repository_url: 'https://github.com/ravindrakumarr/blogbuilder',
+                  social_media: [
+                    'https://www.facebook.com/ravindra.kumar.50767',
+                    'https://www.instagram.com/ravindra_kumarr/'
+                  ],
+                  qualification: 'Engineering',
+                  name: response.profileObj.name
+                };
     console.log(userData);
+
     if (userData.user_name!="" && userData.email_id!="" && userData.user_id!="" && userData.profile!="" ){
       
       var index = 0

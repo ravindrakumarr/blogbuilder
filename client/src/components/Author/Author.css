@@ -1,15 +1,22 @@
-.padding-5{width: 90%; margin-left: 5%; margin-top: 10px; text-align:left;}
+.padding-5{width: 90%; margin-left: 5%; margin-top: 10px; text-align:left; padding: 0px 0px 20px 0px;}
 .box-shadow{box-shadow:rgba(0, 0, 0, 0.25) 0px 1px 2px; border-radius: 4px;}
 
 .small-heading{font-weight: bold;}
+.social_icon_1{width: 27px; height: 27px;}
+.social_icon_2{width: 32px; height: 32px;}
 
 .author-main-card{width: 80%; margin-left: 10%; min-height: 200px; background-color: #fff;}
 
-.container-blocks{width: 80%; margin-left: 10%; margin-top: 10px;}
+.container-blocks{width: 80%; margin-left: 10%; }
 .container-blocks:after{content: ""; display: table; clear: both;}
 
-.author-left-container{float: left; width: 35%; background-color: #fff; }
-.author-right-container{float: left; width:63%; margin-left: 2%; background-color: #fff;}
+.left-side{float: left; width: 35%;}
+.right-side{float: left; width:63%; margin-left: 2%;}
+
+.author-left-container{float: left; width: 100%; background-color: #fff; margin-top: 10px;}
+.author-right-container{float: left; width:100%;  background-color: #fff; margin-top: 10px;}
 
 .author-profile-photo{width: 10%; position : absolute; top: 95px; left: 47%;}
+
+
 
