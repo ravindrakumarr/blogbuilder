@@ -28,10 +28,20 @@ const PostDetails = ({ setCurrentId }) => {
 
   return (
 
- 
+    <>
+    {
 
-    !posts.length ? <CircularProgress /> : (
-        <>
+      !posts.length ? 
+      <>
+        <div className="no-data-div box-shadow">
+          <CircularProgress /><br/><br/>
+          <span className="small-heading">Profile Loading...</span> 
+        </div>
+      </>
+      
+      : 
+      (
+      <>
         {posts.filter(filtered_post => filtered_post._id.includes(blog_query)) 
         .map((post) =>  (
           <Grid key={post._id} item xs={12} sm={6} md={12}>
@@ -39,9 +49,12 @@ const PostDetails = ({ setCurrentId }) => {
           </Grid>
         ))
         }
-        </>
-    )
+      </>
+      )
 
+
+    }  
+  </>
 
   );
 };

@@ -31,7 +31,7 @@ const Author = () => {
 
                 <div className="no-data-div box-shadow">
                     <img src={not_found} className="not-found"/><br/><br/>
-                    <span className="small-heading">Server Error</span> 
+                    <span className="small-heading">Something went wrong , please try again later</span> 
                 </div>
 
             </>

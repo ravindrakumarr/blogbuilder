@@ -18,32 +18,35 @@ const Pagination = ({p_posts, loading }) =>  {
 
     return (
     <>
-
         {p_posts.map(post =>(
-            <div key={post.id} >
-                <Link className="link-name" to={"/post-details/"+post._id}>{post.title}</Link>
-                <br/>
-                <Typography variant="caption">By {post.creator} - {moment(post.createdAt).fromNow()}</Typography>
-                <br/>
-                <Typography variant="caption">
-                    {
-                    post.message.length<100 ?
-                        post.message :
-                        post.message.slice(0,100)+'...'
-                    }
+        <div key={post.id} className="search-cards box-shadow">
+            <div className="padding-5">
+            <br/>   
+            <Link className="link-name" to={"/post-details/"+post._id}>{post.title}</Link>
+            <br/>
+            <Typography variant="caption" className="creator-name">By {post.creator} - {moment(post.createdAt).fromNow()}</Typography>
+            <br/>
+            <Typography variant="caption">
+                {
+                post.message.length<75 ?
+                    post.message :
+                    post.message.slice(0,75)+'...'
+                }
 
-                    <br/>
-                    {
-                        post.likeCount<2 ?
-                        post.likeCount + " Like" :
-                        post.likeCount + " Likes"
-                    }
-                </Typography>
+                <br/>
+                {
+                    post.likeCount<2 ?
+                    post.likeCount + " Like" :
+                    post.likeCount + " Likes"
+                }
+            </Typography>
 
-                <br/><br/>
+            <br/>
             </div>
+        </div>
 
         ))}
+          
 
         <br/>
 

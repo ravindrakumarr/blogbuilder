@@ -10,10 +10,17 @@ import SearchForm from '../SearchForm/SearchForm';
 import Pagination from '../Pagination/Pagination.js';
 import Pageno from '../Pageno/Pageno.js';
 
+import './Search.css'
+
 const Search = () => {
 
     const windows_url = window.location.href;
-    const blog_query = windows_url.slice(29,).replace(/%20/gi, " ").split(" ");
+
+    //currently if it is array , it gives results - but not for string (have to convert it to array)
+    const blog_query = windows_url.includes("%20") ? 
+        windows_url.slice(29,).replace(/%20/gi, " ").split(" ")
+        :
+        windows_url.slice(29,)
 
     const [currentId, setCurrentId] = useState(0);
     const [loading, setLoading] = useState(false);
@@ -29,13 +36,11 @@ const Search = () => {
 
     //have to improvise this filter search
     const p_posts = post_details.filter(filtered_post => 
-        (filtered_post.title).toLowerCase().includes(blog_query[0].toLowerCase())
+        ((filtered_post.title).toLowerCase().includes(blog_query[0].toLowerCase())) ||
+        ((filtered_post.title).toLowerCase().includes(blog_query[1].toLowerCase()))        
     ) 
 
- 
     console.log(p_posts)
-    
-   
         
 
 
@@ -97,16 +102,16 @@ const Search = () => {
 
 
             <div className="home-second-column">
+
                 <div className="padding-5">
 
-                This is search box, below blog query is an array 
-                <br/><br/>
-
-                {console.log(blog_query)}
-
-                {blog_query.length !=0 ? 
+                {p_posts.length !=0 && blog_query.length !=0 ? 
                     <>
-                        <Pagination p_posts={currentPosts} loading={loading}/>
+                        <div className="search_post_container">
+                            <Pagination p_posts={currentPosts} loading={loading}/>
+                        </div>
+                        
+
                         <Pageno 
                             postsPerPage={postsPerPage} 
                             totalPosts={p_posts.length}
@@ -115,7 +120,15 @@ const Search = () => {
                     </> 
 
                     :
-                    "No Result Found"      
+                    <>
+                        <div className="search-cards box-shadow">
+                            <div className="padding-5" style={{textAlign: 'center'}}>
+                                <br/><span className="emoji">&#129488;</span>
+                                <br/>No Result Found<br/>
+                            </div>
+                        </div>
+                    </>
+                          
 
                 }
 
