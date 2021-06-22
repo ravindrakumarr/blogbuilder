@@ -2,7 +2,8 @@
 .box-shadow{box-shadow:rgba(0, 0, 0, 0.25) 0px 1px 2px; border-radius: 4px;}
 
 .profile_photo{width: 80px; height: 80px; border-radius: 50%; margin-top: -35px; padding: 2px; border: 2.5px solid #006699;}
-
+.not-found{width: 100px; height: 100px;}
+.no-data-div{width: 70%; margin-left: 15%; padding: 35px 0px 35px 0px; text-align: center; background-color: #fff; margin-top: 50px;}
 
 .small-heading{font-weight: bold;}
 .social_icon_1{width: 27px; height: 27px;}
