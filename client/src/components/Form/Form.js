@@ -3,17 +3,20 @@ import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
 
+
 import useStyles from './styles';
 
 import './Form.css';
 
 import { createPost, updatePost } from '../../actions/posts';
 
-const Form = ({ currentId, setCurrentId }) => {
-  const [postData, setPostData] = useState({ creator: '', title: '', message: '', tags: '', selectedFile: '', category: '' });
+const Form = ( {currentId, setCurrentId , props_name, props_email } ) => {
+  const [postData, setPostData] = useState({ creator: props_name, creator_email: props_email, title: '', message: '', tags: '', selectedFile: '', category: '' });
   const post = useSelector((state) => (currentId ? state.posts.find((message) => message._id === currentId) : null));
   const dispatch = useDispatch();
   const classes = useStyles();
+
+  console.log(props_email + "this is the props")
 
   useEffect(() => {
     if (post) setPostData(post);
@@ -21,7 +24,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
   const clear = () => {
     setCurrentId(0);
-    setPostData({ creator: '', title: '', message: '', tags: '', selectedFile: '', category: '' });
+    setPostData({ creator: props_name, creator_email: props_email ,title: '', message: '', tags: '', selectedFile: '', category: '' });
   };
 
   const handleSubmit = async (e) => {
@@ -29,9 +32,9 @@ const Form = ({ currentId, setCurrentId }) => {
 
     if (currentId === 0) {
       dispatch(createPost(postData));
-      clear();
+      clear();    
     } else {
-      dispatch(updatePost(currentId, postData));
+      dispatch(updatePost(currentId, postData)); 
       clear();
     }
   };
@@ -72,8 +75,10 @@ const Form = ({ currentId, setCurrentId }) => {
           <textarea className={classes.textarea} name="message" placeholder="Type your content here..." variant="outlined" label="Content" rows={15} value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })} />
 
           <TextField className={classes.textfield} name="tags" variant="outlined" label="Hashtags (coma separated)" fullWidth value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })} />
+          
           <TextField className={classes.textfield} name="title" variant="outlined" label="Category" fullWidth value={postData.category} onChange={(e) => setPostData({ ...postData, category: e.target.value })} />
-    
+
+
           <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
           <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
           <Button className={classes.buttonClear} variant="contained" color="secondary" size="large" onClick={clear} fullWidth>Clear</Button>
@@ -83,7 +88,6 @@ const Form = ({ currentId, setCurrentId }) => {
 
       </div>
 
-      
     </>
   );
 };

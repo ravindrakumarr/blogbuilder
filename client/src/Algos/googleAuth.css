@@ -1,0 +1,5 @@
+.signin-method-in-left-corner{position: fixed; right: 25px; bottom: 50px; padding: 2px; 
+    border-radius: 50%; border: 2px solid #333; box-shadow:rgba(0, 0, 0, 0.16) 0px 1px 4px;}
+
+.google_button{width: 20px; height: 20px;
+    cursor: pointer; border-radius: 50%; border: none;}

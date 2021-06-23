@@ -9,8 +9,11 @@ import GoogleLogin from 'react-google-login';
 import { GoogleLogout } from 'react-google-login';
 import Avatar from '@material-ui/core/Avatar';
 
+import './googleAuth.css';
+import google_pic from '../images/google.png'
 
-const GoogleAuth= () => {
+
+const GoogleAuth = () => {
 
 
   const dispatch = useDispatch();
@@ -44,57 +47,42 @@ const GoogleAuth= () => {
     setEmail(response.profileObj.email);
     setUrl(response.profileObj.imageUrl);
 
-    
-    
-
-    
-    //TESTING - ON GOOGLE LOGIN IF IT CAN FILL THESE UP OR NOT
-    const userData = { user_name: response.profileObj.name, email_id: response.profileObj.email, 
-                  user_id: 'tests', profile: 'developer', 
-                  skills: ['PHP', 'Javascript', 'React'],
-                  work: 'Infosys',
-                  introduction: 'Hello My name is Ravindra Kumar, Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book',
-                  location: 'Hyderabad',
-                  repository_url: 'https://github.com/ravindrakumarr/blogbuilder',
-                  social_media: [
-                    'https://www.facebook.com/ravindra.kumar.50767',
-                    'https://www.instagram.com/ravindra_kumarr/'
-                  ],
-                  qualification: 'Engineering',
-                  name: response.profileObj.name,
-                  profile_photo: response.profileObj.imageUrl,
-                };
-    console.log(userData);
-
-    if (userData.user_name!="" && userData.email_id!="" && userData.user_id!="" && userData.profile!="" ){
-      
-      var index = 0
-      var i = 0
-      //LOGIC TO FIND THE USER PRESENT OR NOT
-      for ( i = 0; i<=users.length; i++){
-        if(users.email_id == response.profileObj.email){
-          console.log("we found it");
-        }
-      }
-      
-
-      if(true){
-        console.log(response.profileObj.email + " -User already exists");
-      } 
-      else{
-        dispatch(createUser(userData)); 
-      }
-    }
-    else{
-      console.log(userData + "we are not receiving as null")
-    }
-    
-
 
   }
 
-  
- 
+
+  //TESTING - ON GOOGLE LOGIN IF IT CAN FILL THESE UP OR NOT
+  const userData = { user_name: name, email_id: email, 
+    user_id: 'tests', profile: 'developer', 
+    skills: ['PHP', 'Javascript', 'React'],
+    work: 'Infosys',
+    introduction: 'Hello My name is Ravindra Kumar, Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book',
+    location: 'Hyderabad',
+    repository_url: 'https://github.com/ravindrakumarr/blogbuilder',
+    social_media: [
+      'https://www.facebook.com/ravindra.kumar.50767',
+      'https://www.instagram.com/ravindra_kumarr/'
+    ],
+    qualification: 'Engineering',
+    name: name,
+    profile_photo: url,
+  };
+
+  if (userData.profile_photo != 0){
+
+  //LOGIC TO FIND THE USER PRESENT OR NOT  
+  JSON.stringify(users).includes(userData.email_id) == true 
+  ?
+    console.log(userData.email_id + "- already exists")
+  :
+    dispatch(createUser(userData)); 
+
+  }
+  else{
+  console.log(userData + "we are receiving data as null")
+  }
+
+
   
   
   const logOut = () => {
@@ -107,40 +95,45 @@ const GoogleAuth= () => {
 
   return (
       <>
+        {name == ""?
+        <div className="signin-method-in-left-corner">
+          <GoogleLogin
+            clientId="950902823496-84k3p9t5k51d04laa4b0hppsdm6orhe7.apps.googleusercontent.com"
+            buttonText="Login"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy={'single_host_origin'}
+            isSignedIn={true}
 
-        <GoogleLogin
-          clientId="950902823496-84k3p9t5k51d04laa4b0hppsdm6orhe7.apps.googleusercontent.com"
-          buttonText="Login"
-          onSuccess={responseGoogle}
-          onFailure={responseGoogle}
-          cookiePolicy={'single_host_origin'}
-          isSignedIn={true}
+            
+            render={renderProps => (
+              <Avatar src={google_pic} className="google_button" onClick={renderProps.onClick} disabled={renderProps.disabled}/>
+            )}
+            
 
-          /*//////////////////custom login button
-          render={renderProps => (
-            <button onClick={renderProps.onClick} disabled={renderProps.disabled}>This is my custom Google button</button>
-          )}
-          */
+          />
+        </div>
+        
+        
+        :
 
-        />
 
-        {name != null ?
-          <>
-            Welcome {name}
-            <Avatar src={url}></Avatar>
-            {email}
-          </>
-          :
-          ""
-        }
+        <div className="signin-method-in-left-corner">
+          <GoogleLogout
+            clientId="950902823496-84k3p9t5k51d04laa4b0hppsdm6orhe7.apps.googleusercontent.com"
+            buttonText="Logout"
+            //isSignedIn={false}
+            onLogoutSuccess={logOut}
 
-        <GoogleLogout
-          clientId="950902823496-84k3p9t5k51d04laa4b0hppsdm6orhe7.apps.googleusercontent.com"
-          buttonText="Logout"
-          //isSignedIn={false}
-          onLogoutSuccess={logOut}
-        >
-        </GoogleLogout>
+            render={renderProps => (
+              <Avatar src={url} className="google_button" onClick={renderProps.onClick} disabled={renderProps.disabled}/>
+            )}
+
+          >
+          </GoogleLogout>
+      </div>
+      
+      }
 
 
         {/*Adding the form from where we can add users*/}

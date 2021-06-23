@@ -12,7 +12,7 @@ import FormControl from '@material-ui/core/FormControl';
 import InputBase from '@material-ui/core/InputBase';
 import { fade,withStyles } from '@material-ui/core/styles';
 
-import GoogleAuth from '../../Algos/googleAuth.js'
+
 
 import './Home.css';
 
@@ -60,7 +60,7 @@ const BootstrapInput = withStyles((theme) => ({
 
 
 
-const Home = () => {
+const Home = (props) => {
   const [currentId, setCurrentId] = useState(0);
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -110,17 +110,6 @@ const Home = () => {
                 <SearchForm/>
                 <br/>
 
-                {/* Quick Links */}
-                <h3 className="footer_ul_amrc">Quick Links to visit</h3>
-                <ul className="footer_ul_amrc" style={{color: '#333333', textDecoration: 'underline'}}>
-                    <li><a href="http://webenlance.com">Remove Background</a></li>
-                    <li><a href="http://webenlance.com">Shadows Mirror Reflection</a></li>
-                    <li><a href="http://webenlance.com">Logo Design</a></li>
-                    <li><a href="http://webenlance.com">Vectorization</a></li>
-                    <li><a href="http://webenlance.com">Hair Masking/Clipping</a></li>
-                    <li><a href="http://webenlance.com">Image Cropping</a></li>
-                </ul>
-
               </div>
           </div>
 
@@ -150,14 +139,11 @@ const Home = () => {
           </div>
 
           {/*----------------------------------------------------------------------*/}
-
+          {props.name}
 
 
         </div>
 
-
-        {/* trying google signin & logout method*/}
-        <GoogleAuth/>
 
     </>
   );

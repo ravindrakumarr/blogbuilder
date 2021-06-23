@@ -58,6 +58,7 @@ const Search = () => {
           setLoading(false);
     
           dispatch(getPosts());
+         
         }
     
         fetchPosts();
@@ -65,10 +66,10 @@ const Search = () => {
       }, []);
 
       console.log(p_posts);
+      
 
     return (
         <div>
-
 
             <div className="home-row">  
 
@@ -83,17 +84,6 @@ const Search = () => {
 
                 <SearchForm/>
                 <br/>
-
-                {/* Quick Links */}
-                <h3 className="footer_ul_amrc">Quick Links to visit</h3>
-                <ul className="footer_ul_amrc" style={{color: '#333333', textDecoration: 'underline'}}>
-                    <li><a href="http://webenlance.com">Remove Background</a></li>
-                    <li><a href="http://webenlance.com">Shadows Mirror Reflection</a></li>
-                    <li><a href="http://webenlance.com">Logo Design</a></li>
-                    <li><a href="http://webenlance.com">Vectorization</a></li>
-                    <li><a href="http://webenlance.com">Hair Masking/Clipping</a></li>
-                    <li><a href="http://webenlance.com">Image Cropping</a></li>
-                </ul>
 
                 </div>
             </div>
