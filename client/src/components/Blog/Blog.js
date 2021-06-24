@@ -10,7 +10,12 @@ import { getPosts } from '../../actions/posts';
 import useStyles from './styles';
 import memories from '../../images/memories.png';
 
-const Blog = () => {
+const Blog = (props) => {
+
+  const props_name = props.name
+  const props_email = props.email
+
+  //Props are getting lost from here as well , will have to look why
 
 
   const [currentId, setCurrentId] = useState(0);
@@ -46,7 +51,7 @@ const Blog = () => {
             <div className="home-third-column">
             <div className="padding-5">
                 <Grid item xs={12} sm={10}>
-                    <Form currentId={currentId} setCurrentId={setCurrentId} />
+                    <Form currentId={currentId} setCurrentId={setCurrentId} props_name={props_name} props_email={props_email} />
                 </Grid>
             </div>
             </div>

@@ -100,11 +100,7 @@ const App = () => {
 
   return (
     <>
-
-
-
-
-{name == ""?
+      {name == ""?
         <div className="signin-method-in-left-corner">
           <GoogleLogin
             clientId="950902823496-84k3p9t5k51d04laa4b0hppsdm6orhe7.apps.googleusercontent.com"
@@ -160,10 +156,10 @@ const App = () => {
           <Route path='/create' component='Create'><Create name={name} email={email}/></Route>
           <Route path='/contact' component='contact'><Contact name={name}/></Route>
           <Route path='/sign-up'/>
-          <Route path='/blog' component='blog'><Blog name={name}/></Route>
+          <Route path='/blog' component='blog'><Blog name={name} email={email}/></Route>
           <Route path='/Search' component='search'><Search name={name}/></Route>
 
-          <Route path='/post-details' component='postdetails'><PostDetails name={name}/></Route>
+          <Route path='/post-details' component='postdetails'><PostDetails name={name} email={email}/></Route>
           <Route path='/author' component='Author'><Author name={name}/></Route>
         </Switch>
 

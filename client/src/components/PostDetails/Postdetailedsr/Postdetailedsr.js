@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
-import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
-import DeleteIcon from '@material-ui/icons/Delete';
-import DescriptionOutlinedIcon from '@material-ui/icons/DescriptionOutlined';
-import DateRangeOutlinedIcon from '@material-ui/icons/DateRangeOutlined';
-import ScreenShareIcon from '@material-ui/icons/ScreenShare';
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import moment from 'moment';
+import ShareIcon from '@material-ui/icons/Share';
 import { useDispatch } from 'react-redux';
 
 import { Link } from 'react-router-dom';
@@ -19,7 +15,11 @@ import useStyles from './styles';
 import Comments from '../../Comments/Comments';
 import CommentForm from '../../CommentForm/CommentForm';
 
-const Postdetailedsr = ({ post }) => {
+const Postdetailedsr = ({ post ,comment_email, comment_name }) => { 
+
+  const commentors_email = comment_email
+  const commentors_name = comment_name
+
   const dispatch = useDispatch();
   const classes = useStyles();
 
@@ -37,115 +37,114 @@ const Postdetailedsr = ({ post }) => {
 
     {/*--building the blog structure--*/}
 
-    <div className="jumbo-card box-shadow">
-    <div className="padding-5">
-
-        <br/>
-
-        <div className="jumbo-strip">
-        <div className="padding-5">
-
-            <div className="jumbo-strip-left">        
-                {post.title}
-            </div>
-
-            <div className="jubmo-strip-right">
-                By {post.creator} , {moment(post.createdAt).fromNow()}
-            </div>
-
-        </div>    
-        </div>
-
-        <br/>
+    <div className="jumbo-card">
 
         <img src={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} 
             className="jumbo-image"
         />
-        <br/><br/>
-
-        <div className="jumbo-strip">
-
-            <div className="jumbo-strip-left">
-            <div className="padding-5">     
-                <Button>Continue Reading</Button>
-            </div>    
-            </div>
-
-            <div className="jubmo-strip-right">
-            <div className="padding-5">    
-                {
-                    post.likeCount<2 ?
-                    post.likeCount + " Like" :
-                    post.likeCount + " Likes"
-                }
-                &nbsp;
-                <Button variant="outlined" size="small" onClick={() => dispatch(likePost(post._id))}><ThumbUpAltIcon fontSize="small"/>
-                    <Typography variant="body2" className={classes.buttontext}>&nbsp;Like</Typography> 
-                </Button>
-            </div>    
-            </div>
-
-        </div>
 
     </div>
+
+    <div className="jumbo_overlap">
+        <br/>
+        <Typography style={{color: '#fff', fontSize:'20px'}}>
+            <bold>
+
+            {
+            post.likeCount<2 ?
+            post.likeCount + " Like" :
+            post.likeCount + " Likes"
+            }
+            <br/>
+            By {post.creator}
+            </bold>
+        </Typography>,
+        
     </div>
+
 
 
     <br/>
     {/*Message container ++ suggestion container*/}
 
-    <div className="message-suggestion">
+    <div className="message_comment_suggestion_box">
+        
+        <div className="message_comment_box">
 
-        <div className="message--comment">
+            <div className="message_box box-shadow">
+                <div className="padding-5">
 
-            {/*Message section*/}
+                 <div className="title_share_box">
+                     <div className="title_box">
+                        <Typography variant="h6"><br/><bold><u>{post.title}</u></bold></Typography>
+                        <Typography variant="caption">{moment(post.createdAt).fromNow()}</Typography>
+                        <Button size="small" onClick={() => dispatch(likePost(post._id))}><FavoriteIcon fontSize="small" style={{color:'#ff3333'}}/>
+                            <Typography variant="body2" className={classes.buttontext}>&nbsp;Like</Typography> 
+                        </Button>
+                     </div>
+                     <div className="share_box">
+                         <br/>
+                        <ShareIcon fontSize="small"/>
+                     </div>
+                </div>   
+              
 
-            <div className="message-container box-shadow">
-            <div className="padding-5">
-
-                <Typography variant="h6"><br/><bold>{post.title}</bold><br/><br/></Typography>
-                <Typography variant="subtitle1">{post.message}</Typography>
                 
-            </div>
+                <br/><br/>
+
+                <div className='new-line'>{post.message}</div>
+                    
+                </div>
             </div>
 
             <br/>
 
-            {/*comment section*/}
+            <div className="comment_box box-shadow">
+                <div className="padding-5">
 
-            <div className="comment-section">
-            <div className="padding-5">
+                    <Typography variant="h6"><br/><bold>Discussion on this thread</bold><br/><br/></Typography>      
+                    <Comments/>
+                    <CommentForm currentId={currentId} setCurrentId={setCurrentId} commentors_email={commentors_email} commentors_name={commentors_name}/>
 
-                <Typography variant="h6"><br/><bold>Discussion on this thread</bold><br/><br/></Typography>      
-                <Comments/>
-                <CommentForm currentId={currentId} setCurrentId={setCurrentId} />
-
-
-            </div>
+                </div>
             </div>
 
         </div>
 
-        
 
-        <div className="suggestion-container box-shadow">
-        <div className="padding-5">    
 
-            <h3 className="footer_ul_amrc">Quick Links to visit</h3>
-            <ul className="footer_ul_amrc" style={{color: '#333333', textDecoration: 'underline'}}>
-                <li><a href="http://webenlance.com">Remove Background</a></li>
-                <li><a href="http://webenlance.com">Shadows Mirror Reflection</a></li>
-                <li><a href="http://webenlance.com">Logo Design</a></li>
-                <li><a href="http://webenlance.com">Vectorization</a></li>
-                <li><a href="http://webenlance.com">Hair Masking/Clipping</a></li>
-                <li><a href="http://webenlance.com">Image Cropping</a></li>
-            </ul>
+        <div className="suggestion_box">
+
+            <div className="author_details box-shadow">
+                <div className="padding-5">
+                    <br/>
+                    <Typography color="primary"><bold>{post.creator}</bold></Typography>
+                    <Typography variant="caption"><u>Know More about Author</u></Typography>
+                </div> 
+            </div>
+
+            <div className="suggestion_links box-shadow">
+                <div className="padding-5">
+
+                <br/>
+                <h3 className="footer_ul_amrc">Quick Links to visit</h3>
+                <ul className="footer_ul_amrc" style={{color: '#333333', textDecoration: 'underline'}}>
+                    <li><a href="http://webenlance.com">Remove Background</a></li>
+                    <li><a href="http://webenlance.com">Shadows Mirror Reflection</a></li>
+                    <li><a href="http://webenlance.com">Logo Design</a></li>
+                    <li><a href="http://webenlance.com">Vectorization</a></li>
+                    <li><a href="http://webenlance.com">Hair Masking/Clipping</a></li>
+                    <li><a href="http://webenlance.com">Image Cropping</a></li>
+                </ul>
+
+                </div>
+            </div>
+
 
         </div>
-        </div>
+
 
     </div>
-
 
     
 

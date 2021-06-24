@@ -34,16 +34,19 @@ const Comments = ({setCurrentId}) => {
 
   useEffect(() => {
     const fetchPosts = async () => {
+      
       setLoading(true);
       const res = await axios.get('http://localhost:5000/comments');
       setposts(res.data);
       setLoading(false);
-
+      
     }
 
     fetchPosts();
 
   }, []);
+
+
 
   if (loading){
     return <h2>Loading</h2>;

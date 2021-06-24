@@ -9,7 +9,10 @@ import Postdetailedsr from './Postdetailedsr/Postdetailedsr';
 import { useDispatch } from 'react-redux';
 import { getPosts } from '../../actions/posts';
 
-const PostDetails = ({ setCurrentId }) => {
+const PostDetails = ({ setCurrentId, email, name}) => {
+
+  const comment_email = email
+  const comment_name = name
 
   const [currentId] = useState(0);
   const dispatch = useDispatch();
@@ -45,7 +48,7 @@ const PostDetails = ({ setCurrentId }) => {
         {posts.filter(filtered_post => filtered_post._id.includes(blog_query)) 
         .map((post) =>  (
           <Grid key={post._id} item xs={12} sm={6} md={12}>
-            <Postdetailedsr post={post} setCurrentId={setCurrentId} />
+            <Postdetailedsr post={post} setCurrentId={setCurrentId} comment_email={comment_email} comment_name={comment_name}/>
           </Grid>
         ))
         }

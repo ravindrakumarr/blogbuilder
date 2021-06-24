@@ -6,8 +6,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import { createComment, updateComment } from '../../actions/comment';
 
 
-const CommentForm = ({ currentId, setCurrentId }) => {
+const CommentForm = ({ currentId, setCurrentId , commentors_email, commentors_name }) => {
 
+  //Props are getting lost on page refresh , so need to get 
 
   const useStyles = makeStyles((theme) => ({
     comment_text: {
@@ -30,11 +31,11 @@ const CommentForm = ({ currentId, setCurrentId }) => {
   const windows_url = window.location.href;
   const comment_query =  windows_url.slice(35,);
 
-  const [postData, setPostData] = useState({ comment_id: comment_query, content: '', creator_name: 'Anonymous', creator_id: 'LoginID' });
+  console.log(commentors_name + "this is what i am talking about")
+
+  const [postData, setPostData] = useState({ comment_id: comment_query, content: '', creator_name: commentors_name, creator_id: commentors_email });
   const comment = useSelector((state) => (currentId ? state.comment.find((message) => message._id === currentId) : null));
   const dispatch = useDispatch();
-
-
 
   useEffect(() => {
     if (comment) setPostData(comment);
@@ -42,13 +43,13 @@ const CommentForm = ({ currentId, setCurrentId }) => {
 
   const clear = () => {
     setCurrentId(0);
-    setPostData({ comment_id: comment_query, content: '', creator_name: 'Anonymous', creator_id: 'LoginID' });
+    setPostData({ comment_id: comment_query, content: '', creator_name: commentors_name, creator_id: commentors_email });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (currentId === 0) {
+    if (currentId === 0 && commentors_name != "") {
       dispatch(createComment(postData));
       clear();
       window.location.reload();
@@ -57,7 +58,8 @@ const CommentForm = ({ currentId, setCurrentId }) => {
       //so using refresh , which shall be removed for better productivity
 
     } else {
-      dispatch(updateComment(currentId, postData));
+      alert(commentors_name + "- commentor not present");
+      //dispatch(updateComment(currentId, postData));
       clear();
     }
   };
@@ -84,6 +86,8 @@ const CommentForm = ({ currentId, setCurrentId }) => {
 
 
       </div>
+
+
 
       
     </>

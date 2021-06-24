@@ -13,19 +13,29 @@ export default class SearchForm extends React.Component {
     }
   }
 
+
+    handleButtonClicked() {
+      var searchQuery = this.state.searchQuery;
+      window.location.href = "http://localhost:3000/search?" + searchQuery;
+      //ALERT ALERT ALERT 
+      //the above code has to be improvised as per routing concepts
+    }
+
+
+   handleKeypress (event) {
+    //it triggers by pressing the enter key
+    if (event.keyCode === 13 || event.key === 'Enter' ) {
+      this.handleButtonClicked();
+    }
+  };
+
+
   handleInputChanged(event) {
     this.setState({
       searchQuery: event.target.value
     });
   }
 
-  handleButtonClicked() {
-    var searchQuery = this.state.searchQuery;
-    window.location.href = "http://localhost:3000/search?" + searchQuery;
-
-    //ALERT ALERT ALERT 
-    //the above code has to be improvised as per routing concepts
-  }
 
   render() {
     return  (
@@ -35,10 +45,13 @@ export default class SearchForm extends React.Component {
             onChange={this.handleInputChanged.bind(this)} 
             className="input"
             placeholder="Search Posts"
+            onKeyPress={this.handleKeypress.bind(this)}
         />
-        <button onClick={this.handleButtonClicked.bind(this)} className="submit-button">
-          <TelegramIcon className="icon"/>
-        </button>
+        <div style={{display: 'none'}}>
+          <button onClick={this.handleButtonClicked.bind(this)} className="submit-button">
+            <TelegramIcon className="icon"/>
+          </button>
+        </div>
 
         <br/><br/>
 
