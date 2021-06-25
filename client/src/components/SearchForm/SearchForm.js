@@ -44,7 +44,7 @@ export default class SearchForm extends React.Component {
             value={this.state.searchQuery} 
             onChange={this.handleInputChanged.bind(this)} 
             className="input"
-            placeholder="Search Posts"
+            placeholder="Search for blogs"
             onKeyPress={this.handleKeypress.bind(this)}
         />
         <div style={{display: 'none'}}>
@@ -58,12 +58,20 @@ export default class SearchForm extends React.Component {
         {/* Quick Links */}
         <h3 className="footer_ul_amrc">Quick Links to visit</h3>
         <ul className="footer_ul_amrc" style={{color: '#333333', textDecoration: 'underline'}}>
-            <li><a href={'/search?how to do'}>how to do</a></li>
-            <li><a href={'/search?Remove Background'}>Remove Background</a></li>
-            <li><a href={'/search?Shadows Mirror Reflection'}>Shadows Mirror Reflection</a></li>
-            <li><a href={'/search?Logo Design'}>Logo Design</a></li>
-            <li><a href={'/search?Vectorization tree'}>Vectorization tree</a></li>
-            <li><a href={'/search?Hair Masking/Clipping'}>Hair Masking/Clipping</a></li>
+            <li><a href={'/search?how to do'}><span className="blue-links">how to do</span></a></li>
+            <li><a href={'/search?Remove Background'}><span className="blue-links">Remove Background</span></a></li>
+            <li><a href={'/search?Shadows Mirror Reflection'}><span className="blue-links">Shadows Mirror Reflection</span></a></li>
+            <li><a href={'/search?Logo Design'}><span className="blue-links">Logo Design</span></a></li>
+            <li><a href={'/search?Vectorization tree'}><span className="blue-links">Vectorization tree</span></a></li>
+        </ul>
+
+        <br/>
+
+        <h3 className="footer_ul_amrc">Some Popular Hashtags</h3>
+        <ul className="footer_ul_amrc" style={{color: '#333333', textDecoration: 'underline'}}>
+            <li><a href={'/search?how to do'}><span className="blue-links">#howto</span></a></li>
+            <li><a href={'/search?Remove Background'}><span className="blue-links">#ProceudreTo</span></a></li>
+            <li><a href={'/search?Shadows Mirror Reflection'}><span className="blue-links">#CreateThis</span></a></li>        
         </ul>
 
 

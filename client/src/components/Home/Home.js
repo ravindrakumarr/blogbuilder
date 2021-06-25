@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
+import NewsLetter from '../NewsLetter/NewsLetter'
 
 import Published from '../Published/Published';
 import Form from '../Form/Form';
 import { getPosts } from '../../actions/posts';
 import useStyles from './styles';
-import memories from '../../images/memories.png';
 
-import FormControl from '@material-ui/core/FormControl';
-import InputBase from '@material-ui/core/InputBase';
 import { fade,withStyles } from '@material-ui/core/styles';
 
 
@@ -19,45 +17,6 @@ import './Home.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import SearchForm from '../SearchForm/SearchForm';
-
-
-const BootstrapInput = withStyles((theme) => ({
-  root: {
-    'label + &': {
-      marginTop: theme.spacing(3),
-    },
-  },
-  input: {
-    borderRadius: 4,
-    position: 'relative',
-    backgroundColor: theme.palette.common.white,
-    border: '1px solid #ced4da',
-    fontSize: 16,
-    width: 'auto',
-    padding: '10px 12px',
-    transition: theme.transitions.create(['border-color', 'box-shadow']),
-    // Use the system font instead of the default Roboto font.
-    fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
-    '&:focus': {
-      boxShadow: `${fade(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
-      borderColor: theme.palette.primary.main,
-    },
-  },
-}))(InputBase);
-
-
-
 
 
 const Home = (props) => {
@@ -100,16 +59,14 @@ const Home = (props) => {
 
           <div className="home-first-column">
               <div className="padding-5">
-                  
-                This is home component<br/>
-                <Link to='/blog'>Move to Blog</Link>
+                <Typography variant="body2">
+                <br/> 
+                “If you haven’t found it, keep looking.” <br/><span style={{color: '#006699'}}><bold>Steve Jobs</bold></span>
                 <br/><br/>
-
                 {/* Search incomplete box */}
-
                 <SearchForm/>
                 <br/>
-
+                </Typography>
               </div>
           </div>
 
@@ -129,11 +86,7 @@ const Home = (props) => {
           <div className="home-third-column">
               <div className="padding-5">
 
-                Contents that would be needed to hide on mobile version<br/><br/>
-
-                <FormControl>
-                  <BootstrapInput defaultValue="Subscribe Newsletter" id="bootstrap-input" />
-                </FormControl>
+                <NewsLetter/>
 
               </div>
           </div>

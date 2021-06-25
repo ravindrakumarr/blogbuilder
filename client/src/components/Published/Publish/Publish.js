@@ -1,13 +1,12 @@
 import React from 'react';
 import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
-import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
-import DeleteIcon from '@material-ui/icons/Delete';
 import DescriptionOutlinedIcon from '@material-ui/icons/DescriptionOutlined';
 import DateRangeOutlinedIcon from '@material-ui/icons/DateRangeOutlined';
-import ScreenShareIcon from '@material-ui/icons/ScreenShare';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
+import ShareIcon from '@material-ui/icons/Share';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 import { Link } from 'react-router-dom';
 
@@ -33,14 +32,20 @@ const Publish = ({ post, setCurrentId }) => {
         <div className="card-right">
             <div className="padding-5">
                 <br/>
-                <Typography variant="h6" color="default" style={{fontFamily: 'Times New Roman', fontWeight: 'bold' }}>{post.title}</Typography>
+                <Typography variant="h6" color="default" style={{fontFamily: 'Helvetica', fontWeight: 'bold' }}>
+                    {post.title.length>35 ?
+                    post.title.slice(0,35)+'...'
+                    :
+                    post.title 
+                    }
+                </Typography>
                 
-                <span className={classes.buttontext} color="textSecondary"><DescriptionOutlinedIcon fontSize="small"/>{post.creator}</span>
+                <span className={classes.buttontext} style={{color: '#666666'}}>By {post.creator}</span>
                 &nbsp;&nbsp;
-                <span className={classes.buttontext}><DateRangeOutlinedIcon fontSize="small"/>{moment(post.createdAt).fromNow()}</span>
+                <span className={classes.buttontext} style={{color: '#666666'}}>&nbsp;{moment(post.createdAt).fromNow()}</span>
 
-                <Button size="small" onClick={() => dispatch(likePost(post._id))}><ThumbUpAltIcon className={classes.icons} />
-                    <Typography className={classes.buttontext}>&nbsp;
+                <Button size="small" onClick={() => dispatch(likePost(post._id))}><FavoriteIcon className={classes.icons} style={{color: '#666666'}} />
+                    <Typography className={classes.buttontext} style={{color: '#666666'}}>&nbsp;
                         {
                         post.likeCount<2 ?
                         post.likeCount + " Like" :
@@ -52,23 +57,31 @@ const Publish = ({ post, setCurrentId }) => {
 
                 <Typography variant="caption">
                   {
-                  post.message.length<75 ?
-                      post.message :
-                      post.message.slice(0,75)+'...'
+                    post.message.length<75 ?
+                    post.message :
+                    post.message.slice(0,75)+'...'
+                  }
+                  &nbsp;
+                  <Link to={"/post-details/"+post._id}>Read More</Link>
+                  <br/>
+                  { !post.tags.length ?
+                        <del>No hashTags</del>
+                    :
+                        post.tags.map((tag)=>(
+                            <span>#{tag}&nbsp;</span>
+                        ))
                   }
                 </Typography>
+
                 
                 <br/>
 
-                <Link to={"/post-details/"+post._id}>Read More</Link>
-                <br/><br/>
-
-                <Button variant="outlined" size="small" onClick={() => dispatch(likePost(post._id))}><ThumbUpAltIcon fontSize="small"/>
-                    <Typography variant="body2" className={classes.buttontext}>&nbsp;Like</Typography> 
+                <Button size="small" onClick={() => dispatch(likePost(post._id))} style={{marginLeft: '-10px'}}><FavoriteIcon fontSize="small" style={{color:'#ff3333'}}/>
+                    <Typography variant="body2" className={classes.buttontext}>&nbsp;Tap to Like</Typography> 
                 </Button>
                 &nbsp;&nbsp;
-                <Button variant="outlined" size="small" ><ScreenShareIcon fontSize="small"/>
-                    <Typography variant="body2" className={classes.buttontext}>&nbsp;Share</Typography> 
+                <Button  size="small" ><ShareIcon fontSize="small"/>
+                    <Typography variant="body2" className={classes.buttontext}>&nbsp;Share this Blog</Typography> 
                 </Button>
 
             </div>

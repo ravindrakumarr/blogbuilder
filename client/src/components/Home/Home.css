@@ -4,11 +4,11 @@
 .home-row:after{content: ""; display: table; clear: both;}
 
 .home-first-column{float: left; width: 25%; border-right: 0.5px solid rgba(0,0,0,0.12); min-height: 550px;
-    border-bottom: 0.5px solid rgba(0,0,0,0.12); min-height: 550px;}
+     min-height: 550px;}
 
 /*---------------------------*/
 
-.home-second-column{float: left; width: 50%; height: 550px; overflow-y: scroll; border-bottom: 0.5px solid rgba(0,0,0,0.12); min-height: 550px;}
+.home-second-column{float: left; width: 50%; height: 550px; overflow-y: scroll; }
 /* scrollbar width */
 .home-second-column::-webkit-scrollbar { width: 2px; }
 .home-second-column::-webkit-scrollbar-track { background: #f1f1f1; }
@@ -17,6 +17,6 @@
 
 /*---------------------------*/
 
-.home-third-column{float: left; width: 25%; min-height: 550px; background-color: rgba(0,0,0,0.03);}
+.home-third-column{float: left; width: 25%; min-height: 550px; background-color: rgba(77, 213, 255, 0.03)}
 
 /*---------------------------*/

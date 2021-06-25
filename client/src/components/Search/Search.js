@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -9,6 +10,7 @@ import SearchForm from '../SearchForm/SearchForm';
 
 import Pagination from '../Pagination/Pagination.js';
 import Pageno from '../Pageno/Pageno.js';
+import NewsLetter from '../NewsLetter/NewsLetter'
 
 import './Search.css'
 
@@ -74,19 +76,17 @@ const Search = () => {
             <div className="home-row">  
 
             <div className="home-first-column">
-                <div className="padding-5">
-                    
-                This is home component<br/>
-                <Link to='/blog'>Move to Blog</Link>
+              <div className="padding-5">
+                <Typography variant="body2">  
+                <br/> 
+                “If you haven’t found it, keep looking.” <br/><span style={{color: '#006699'}}><bold>Steve Jobs</bold></span>
                 <br/><br/>
-
                 {/* Search incomplete box */}
-
                 <SearchForm/>
                 <br/>
-
-                </div>
-            </div>
+                </Typography>
+              </div>
+          </div>
 
             {/*----------------------------------------------------------------------*/}
 
@@ -130,8 +130,8 @@ const Search = () => {
 
             <div className="home-third-column">
                 <div className="padding-5">
-
-                Contents that would be needed to hide on mobile version<br/><br/>
+ 
+                    <NewsLetter/>
 
                 </div>
             </div>
@@ -144,6 +144,8 @@ const Search = () => {
 
 
         </div>
+
+       
     )
 }
 

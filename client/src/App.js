@@ -14,6 +14,7 @@ import PostDetails from './components/PostDetails/PostDetails';
 import Create from './components/Create/Create';
 import Search from './components/Search/Search.js';
 import Author from './components/Author/Author.js';
+import NewsLetter from './components/NewsLetter/NewsLetter.js';
 
 import google_pic from './images/google.png'
 import GoogleLogin from 'react-google-login';
@@ -161,6 +162,8 @@ const App = () => {
 
           <Route path='/post-details' component='postdetails'><PostDetails name={name} email={email}/></Route>
           <Route path='/author' component='Author'><Author name={name}/></Route>
+
+          <Route path='/prohibitedroutenottobevisited' component='NewsLetter'><NewsLetter name={name} email={email}/></Route>
         </Switch>
 
         <div className="make-this-void"></div>

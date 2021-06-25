@@ -1,7 +1,9 @@
 .icon{font-size: 10px; }
-.input{border-radius: 2px; padding: 5px 0px 5px 5px;}
+.input{border-radius: 4px; width: 80%; padding: 10px 5px 10px 15px; border: 0.5px solid #bfbfbf; background-color: #fff;}
 
 .input:focus{outline: none;}
 
 .submit-button{border: none; border-radius: 2px; background: none; margin-left:-30px; cursor: pointer;}
 .submit-button:focus{outline: none;}
+
+.blue-links{color: #006699;}

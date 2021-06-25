@@ -45,7 +45,7 @@
   font-size: 100px;
 }
 
-.make-this-void{width: 100%; min-height: 100px;}
+.make-this-void{width: 100%; min-height: 5px;}
 
 
 .signin-method-in-left-corner{position: fixed; right: 25px; bottom: 50px; padding: 2px; 
@@ -53,4 +53,3 @@
 
 .google_button{width: 20px; height: 20px;
   cursor: pointer; border-radius: 50%; border: none;}
-
