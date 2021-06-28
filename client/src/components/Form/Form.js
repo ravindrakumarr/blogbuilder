@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
+import Safe from "react-safe"
 
 
 import useStyles from './styles';
@@ -41,6 +42,12 @@ const Form = ( {currentId, setCurrentId , props_name, props_email } ) => {
 
   return (
     <>
+
+    <Safe.script src="https://use.typekit.net/foobar.js"></Safe.script>
+    <Safe.script>{
+      `try{Typekit.load({ async: true });}catch(e){}`
+    }
+    </Safe.script>
 
       <br/>
       <div className="form-container">

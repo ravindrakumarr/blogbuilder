@@ -20,6 +20,11 @@ import SearchForm from '../SearchForm/SearchForm';
 
 
 const Home = (props) => {
+
+
+  const props_name = props.name;
+  const props_email = props.email;
+
   const [currentId, setCurrentId] = useState(0);
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -86,13 +91,12 @@ const Home = (props) => {
           <div className="home-third-column">
               <div className="padding-5">
 
-                <NewsLetter/>
+                <NewsLetter props_name={props_name} props_email={props_email}/>
 
               </div>
           </div>
 
           {/*----------------------------------------------------------------------*/}
-          {props.name}
 
 
         </div>

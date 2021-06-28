@@ -153,7 +153,8 @@ const App = () => {
         <Navbar />
 
         <Switch>
-          <Route path='/' exact ><Home name={name}/></Route>
+          
+          <Route path='/' exact ><Home name={name} email={email}/></Route>
           <Route path='/create' component='Create'><Create name={name} email={email}/></Route>
           <Route path='/contact' component='contact'><Contact name={name}/></Route>
           <Route path='/sign-up'/>
@@ -163,7 +164,6 @@ const App = () => {
           <Route path='/post-details' component='postdetails'><PostDetails name={name} email={email}/></Route>
           <Route path='/author' component='Author'><Author name={name}/></Route>
 
-          <Route path='/prohibitedroutenottobevisited' component='NewsLetter'><NewsLetter name={name} email={email}/></Route>
         </Switch>
 
         <div className="make-this-void"></div>

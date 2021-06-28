@@ -31,8 +31,4 @@ export const createUser = async (req, res) => {
 }
 
 
-
-
-
-
 export default router;

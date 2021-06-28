@@ -8,30 +8,31 @@ function Contact() {
     <div class="container">
 
         <div class="row">
-            <div class="col-md-12 wow animated fadeInLeft" data-wow-delay=".2s">
-                <h1 class="section-title">Love to Hear From You</h1>
-            </div>
-        </div>
 
-        <div class="row">
+              <div class="col-md-12 wow animated fadeInLeft" data-wow-delay=".2s">
+                  <br/><br/>
+                  <h1 class="section-title">Love to Hear From You</h1>
+              </div>
+
               <div class="col-md-6 mt-3 contact-widget-section2 wow animated fadeInLeft" data-wow-delay=".2s">
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content.</p>
+                <p><span style={{color: '#006699'}}><bold>"Knowledge is having the right answer, 
+                  Intelligence is asking the right question."</bold></span></p>
+                
+                <p>Blogbuilder always welcomes opprotunities/queries on our way. So please do reach out to us,
+                   in case of any clarification or assistence required. </p>
 
                 <div class="find-widget">
-                 Company:  <a href="https://hostriver.ro">HostRiver</a>
+                 Company:  <a href="https://hostriver.ro"><span style={{color: '#006699'}}>BlogBuilder</span></a>
                 </div>
                 <div class="find-widget">
-                 Address: <a href="#">4435 Berkshire Circle Knoxville</a>
+                 Address: <a href="#"><span style={{color: '#006699'}}>Hyderabad, India</span></a>
                 </div>
                 <div class="find-widget">
-                  Phone:  <a href="#">+ 879-890-9767</a>
+                  Email Us: <a href="#"><span style={{color: '#006699'}}>rkumar6821@gmail.com</span></a>
                 </div>
                 
                 <div class="find-widget">
-                  Website:  <a href="https://uny.ro">www.uny.ro</a>
-                </div>
-                <div class="find-widget">
-                   Program: <a href="#">Mon to Sat: 09:30 AM - 10.30 PM</a>
+                  Site Author's Profile:  <a href="https://ravindra.kumar.co.in"><span style={{color: '#006699'}}>www.ravindrakumar.co.in</span></a>
                 </div>
               </div>
 
@@ -62,7 +63,7 @@ function Contact() {
                           <div class="help-block with-errors"></div>
                       </div>
      
-                      <div class="form-submit mt-5">
+                      <div class="form-submit" style={{}}>
                           <button class="btn btn-common" type="submit" id="form-submit"><i class="material-icons mdi mdi-message-outline"></i> Send Message</button>
                           <div id="msgSubmit" class="h3 text-center hidden"></div>
                           <div class="clearfix"></div>

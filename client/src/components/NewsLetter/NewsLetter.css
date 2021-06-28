@@ -1,4 +1,9 @@
 .padding-3{width: 96%; margin-left: 2%; margin-top: 10px; text-align:left; padding: 0px 0px 20px 0px;}
 
 .subscribe-button{width: 96%; padding: 5px 0px 5px 0px; color: #fff; background-color: #006699;
-border: none; border-radius: 2px; margin-top: 8px; font-size: 14px;}
+border: none; border-radius: 2px; margin-top: 8px; font-size: 14px; cursor: pointer;}
+
+.submit-button{width: 96%; padding: 5px 0px 5px 0px; color: #fff; background-color: #006699;
+    border: none; border-radius: 2px; margin-top: 8px; font-size: 14px; cursor: pointer;}
+    
+.input{border-radius: 4px; width: 100%; padding: 10px 5px 10px 15px; border: 0.5px solid #bfbfbf; background-color: #fff;}
