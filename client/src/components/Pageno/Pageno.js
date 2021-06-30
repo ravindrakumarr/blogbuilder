@@ -15,7 +15,7 @@ const Pageno = ({postsPerPage, totalPosts, paginate}) => {
                     {pageNumbers.map(number =>(
                       <li key={number} className="page-item">
                           <a onClick={()=>paginate(number)} className="page-link">
-                              {number}
+                              <span style={{color: '#006699'}}>{number}</span>
                           </a>
                       </li>  
                     )

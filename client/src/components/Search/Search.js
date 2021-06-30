@@ -13,7 +13,12 @@ import Pageno from '../Pageno/Pageno.js';
 import NewsLetter from '../NewsLetter/NewsLetter'
 import not_found from '../../images/not-found.png'
 
+import consultancy from '../../images/category/consultancy.jpg'
+import information_tech from '../../images/category/information_tech.jpg'
+import legal from '../../images/category/legal.jpg'
+
 import './Search.css'
+import createTypography from '@material-ui/core/styles/createTypography';
 
 const Search = () => {
 
@@ -101,13 +106,17 @@ const Search = () => {
                         <div className="search_post_container">
                             <Pagination p_posts={currentPosts} loading={loading}/>
                         </div>
-                        
 
-                        <Pageno 
-                            postsPerPage={postsPerPage} 
-                            totalPosts={p_posts.length}
-                            paginate={paginate}
-                        />  
+                        <br/><br/>
+                        
+                        <div className="place_page_no">
+                            <Pageno 
+                                postsPerPage={postsPerPage} 
+                                totalPosts={p_posts.length}
+                                paginate={paginate}
+                            /> 
+                        </div>
+                         
                     </> 
 
                     :

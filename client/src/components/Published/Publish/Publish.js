@@ -15,6 +15,10 @@ import './Publish.css';
 import { likePost, deletePost } from '../../../actions/posts';
 import useStyles from './styles';
 
+import consultancy from '../../../images/category/consultancy.jpg'
+import information_tech from '../../../images/category/information_tech.jpg'
+import legal from '../../../images/category/legal.jpg'
+
 const Publish = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -25,7 +29,7 @@ const Publish = ({ post, setCurrentId }) => {
     <div className="card-row box-shadow">
 
         <div className="card-left">
-            <br/><img src={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} 
+            <br/><img src={post.selectedFile || legal} 
             className="card-image"
             />
         </div>

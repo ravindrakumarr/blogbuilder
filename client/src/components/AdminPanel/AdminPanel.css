@@ -1,0 +1,12 @@
+.box_shadow{box-Shadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px'}
+
+.authentication_box{
+    width: '60%';
+    min-height: '100px';
+    background-Color: '#fff';
+    margin-Left: '20%';
+    margin-Top: '50px';
+    text-Align: 'center';
+    padding: '20px 10px 25px 10px';
+
+}
