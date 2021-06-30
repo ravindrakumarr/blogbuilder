@@ -36,7 +36,7 @@ const PostDetails = ({ setCurrentId, email, name}) => {
 
       !posts.length ? 
       <>
-        <div className="no-data-div box-shadow">
+        <div className="no-data-div">
           <CircularProgress /><br/><br/>
           <span className="small-heading">Profile Loading...</span> 
         </div>

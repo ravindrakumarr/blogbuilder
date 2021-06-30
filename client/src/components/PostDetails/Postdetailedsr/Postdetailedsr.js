@@ -26,14 +26,9 @@ const Postdetailedsr = ({ post ,comment_email, comment_name }) => {
   //it is for comments section
   const [currentId, setCurrentId] = useState(0);
 
-
-
-   
-
   return (
 
     <>
-
 
     {/*--building the blog structure--*/}
 
@@ -127,14 +122,14 @@ const Postdetailedsr = ({ post ,comment_email, comment_name }) => {
                 <div className="padding-5">
 
                 <br/>
-                <h3 className="footer_ul_amrc">Quick Links to visit</h3>
+                <h3 className="footer_ul_amrc"><Typography variant="h6">Quick Links to visit</Typography></h3>
                 <ul className="footer_ul_amrc" style={{color: '#333333', textDecoration: 'underline'}}>
-                    <li><a href="http://webenlance.com">Remove Background</a></li>
-                    <li><a href="http://webenlance.com">Shadows Mirror Reflection</a></li>
-                    <li><a href="http://webenlance.com">Logo Design</a></li>
-                    <li><a href="http://webenlance.com">Vectorization</a></li>
-                    <li><a href="http://webenlance.com">Hair Masking/Clipping</a></li>
-                    <li><a href="http://webenlance.com">Image Cropping</a></li>
+                    <li><a href="http://webenlance.com"><span className="blue-links">Remove Background</span></a></li>
+                    <li><a href="http://webenlance.com"><span className="blue-links">Shadows Mirror Reflection</span></a></li>
+                    <li><a href="http://webenlance.com"><span className="blue-links">Logo Design</span></a></li>
+                    <li><a href="http://webenlance.com"><span className="blue-links">Vectorization</span></a></li>
+                    <li><a href="http://webenlance.com"><span className="blue-links">Hair Masking Clipping</span></a></li>
+                    <li><a href="http://webenlance.com"><span className="blue-links">Image Cropping</span></a></li>
                 </ul>
 
                 </div>

@@ -11,3 +11,4 @@
 .search_post_container::-webkit-scrollbar-thumb:hover { background: #555; }
 
 .emoji{font-size: 25px;}
+.not-found{width: 100px; height: 100px;}

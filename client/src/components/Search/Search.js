@@ -11,6 +11,7 @@ import SearchForm from '../SearchForm/SearchForm';
 import Pagination from '../Pagination/Pagination.js';
 import Pageno from '../Pageno/Pageno.js';
 import NewsLetter from '../NewsLetter/NewsLetter'
+import not_found from '../../images/not-found.png'
 
 import './Search.css'
 
@@ -111,10 +112,10 @@ const Search = () => {
 
                     :
                     <>
-                        <div className="search-cards box-shadow">
+                        <div className="search-cards">
                             <div className="padding-5" style={{textAlign: 'center'}}>
-                                <br/><span className="emoji">&#129488;</span>
-                                <br/>No Result Found<br/>
+                                <br/><img src={not_found} className="not-found"/><br/><br/>
+                                <br/>Sorry, there is no article or blogs exists with these keywords<br/>
                             </div>
                         </div>
                     </>

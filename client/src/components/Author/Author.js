@@ -29,10 +29,11 @@ const Author = () => {
             users.length == 0 ?
             <>
 
-                <div className="no-data-div box-shadow">
+                <div className="no-data-div">
                     <img src={not_found} className="not-found"/><br/><br/>
                     <span className="small-heading">Something went wrong , please try again later</span> 
                 </div>
+                <br/><br/>
 
             </>
             :

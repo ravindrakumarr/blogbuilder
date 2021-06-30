@@ -22,3 +22,11 @@ const url3 = 'http://localhost:5000/users';
 
 export const getUsers = () => axios.get(url3);
 export const createUser = (newUser) => axios.post(url3, newUser);
+
+// Subscriber section
+
+
+const url4 = 'http://localhost:5000/subscribers';
+
+export const fetchSubscribers = () => axios.get(url4);
+export const createSubscriber = (newSubscriber) => axios.post(url4, newSubscriber);

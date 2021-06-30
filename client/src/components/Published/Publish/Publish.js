@@ -19,6 +19,7 @@ const Publish = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
 
+
   return (
 
     <div className="card-row box-shadow">
@@ -32,13 +33,15 @@ const Publish = ({ post, setCurrentId }) => {
         <div className="card-right">
             <div className="padding-5">
                 <br/>
-                <Typography variant="h6" color="default" style={{fontFamily: 'Helvetica', fontWeight: 'bold' }}>
+                <Link to={"/post-details/"+post._id}>
+                <Typography variant="h6" color="default" style={{fontFamily: 'Helvetica', fontWeight: 'bold', color: '#333' }}>
                     {post.title.length>35 ?
                     post.title.slice(0,35)+'...'
                     :
                     post.title 
                     }
                 </Typography>
+                </Link>
                 
                 <span className={classes.buttontext} style={{color: '#666666'}}>By {post.creator}</span>
                 &nbsp;&nbsp;
@@ -64,27 +67,23 @@ const Publish = ({ post, setCurrentId }) => {
                   &nbsp;
                   <Link to={"/post-details/"+post._id}>Read More</Link>
                   <br/>
-                  { !post.tags.length ?
+                  {!post.tags.length ?
                         <del>No hashTags</del>
                     :
                         post.tags.map((tag)=>(
-                            <span>#{tag}&nbsp;</span>
+                            <span style={{color: '#000'}}>#{tag}&nbsp;</span>
                         ))
                   }
                 </Typography>
 
-                
-                <br/>
-
-                <Button size="small" onClick={() => dispatch(likePost(post._id))} style={{marginLeft: '-10px'}}><FavoriteIcon fontSize="small" style={{color:'#ff3333'}}/>
-                    <Typography variant="body2" className={classes.buttontext}>&nbsp;Tap to Like</Typography> 
-                </Button>
-                &nbsp;&nbsp;
-                <Button  size="small" ><ShareIcon fontSize="small"/>
-                    <Typography variant="body2" className={classes.buttontext}>&nbsp;Share this Blog</Typography> 
-                </Button>
-
             </div>
+        </div>
+
+        <div className="extreme_right">
+            <br/><br/>
+            <Button size="small" style={{marginTop: '-22px'}}><ShareIcon fontSize="small"/>
+                <Typography variant="body2" className={classes.buttontext}></Typography> 
+            </Button>
         </div>
 
 

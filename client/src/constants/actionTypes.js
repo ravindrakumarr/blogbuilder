@@ -16,3 +16,8 @@ export const UPDATE_COMMENT = 'UPDATE_COMMENT';
 
 export const FETCH_USERS = 'FETCH_USERS';
 export const CREATE_USER = 'CREATE_USER';
+
+//fetch subscriber section
+
+export const FETCH_SUBSCRIBERS = 'FETCH_SUBSCRIBERS';
+export const CREATE_SUBSCRIBER = 'CREATE_SUBSCRIBER';

@@ -7,6 +7,8 @@ import cors from 'cors';
 import postRoutes from './routes/posts.js';
 import commentRoutes from './routes/comment.js';
 import userRoutes from './routes/users.js';
+import subscriberRoutes from './routes/subscribe.js';
+
 
 const app = express();
 
@@ -17,6 +19,7 @@ app.use(cors());
 app.use('/posts', postRoutes);
 app.use('/comments', commentRoutes);
 app.use('/users', userRoutes);
+app.use('/subscribers', subscriberRoutes);
 
 //this one is for mongo db atlas
 //const CONNECTION_URL = "mongodb+srv://rkumar6821:tmkoc108@cluster0.o1ip5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
