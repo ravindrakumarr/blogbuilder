@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './AdminPanel.css'
 import Plagiarism from './Plagiarism';
+import Stats  from './Stats';
 import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
 
 const passcode = "123";
@@ -67,7 +68,10 @@ export default class AdminPanel extends React.Component {
                         <div className="stats_check box-shadow">
 
                             <div className="padding-5">
-                                Need to check stats
+                                <br/>
+                                <Typography variant="h6"><u>Current Stats</u></Typography>
+                                <br/>
+                                <Stats/>
                             </div>
 
                         </div>

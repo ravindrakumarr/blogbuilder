@@ -9,7 +9,6 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import { Link } from 'react-router-dom';
 import { getPosts } from '../../actions/posts';
 import axios from 'axios';
-import useStyles from './Plagiarism_styles';
 import './Plagiarism.css';
 
 

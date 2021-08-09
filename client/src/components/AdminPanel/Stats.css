@@ -1,0 +1,10 @@
+.stats_row{width: 90%; margin-left: 5%;}
+.stats_row:after{content: ""; clear: both; display: table;}
+
+.stats_column{float: left; width: 46%; margin-left: 2%; height: 100px; border-radius: 2px;}
+
+.box-shadow{box-shadow:rgba(0, 0, 0, 0.16) 0px 1px 4px;}
+.blue{background-color: #0099cc;}
+.green{background-color: rgba(0, 204, 153,0.3);}
+.yellow{background-color:rgba(230, 230, 0, 0.3)}
+.red{background-color: #ff0000;}
